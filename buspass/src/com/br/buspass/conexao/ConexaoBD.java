@@ -13,6 +13,7 @@ import com.br.buspass.Horario;
 import com.br.buspass.LoginFuncionario;
 import com.br.buspass.VagaVeiculo;
 import com.br.buspass.Veiculo;
+import com.br.buspass.compra.Escolha;
 
 /**
  **
@@ -27,6 +28,24 @@ public class ConexaoBD {
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
     private final String QUERY2 = "";
     private final String QUERY3 = "";
+
+    public static Escolha CompraPassagem(Escolha aluno_compra) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+                // Step 2:Create a statement using connection object
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("SELECT * FROM horarios;");) {
+            // Step 3: Execute the query or update query
+
+            ResultSet resultset = preparedStatement.executeQuery();
+
+            System.out.println(resultset);
+
+            // Step 4: Process the ResultSet object.
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return null;
+    }
 
     public static Aluno LoginAluno(Aluno login_aluno) {
         try (Connection connection = DriverManager.getConnection(url, user, password);

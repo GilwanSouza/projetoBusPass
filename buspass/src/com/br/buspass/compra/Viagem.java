@@ -1,11 +1,11 @@
 package com.br.buspass.compra;
 
-public class Produto {
+public class Viagem {
     
     private double preco;
     private int quantidade;
 
-    public Produto(double preco, int quantidade){
+    public Viagem(double preco, int quantidade){
         this.preco = preco;
         this.quantidade = quantidade;
     }
@@ -30,6 +30,6 @@ public class Produto {
     public String toString() {
         return "Produto"                 + 
         "\nPreço = "   + this.preco      +
-        "\nEstoque = " + this.quantidade + "\n";
+        "\nViagens = " + this.quantidade + "\n";
     }
 }
