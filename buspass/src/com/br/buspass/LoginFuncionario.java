@@ -12,7 +12,7 @@ public class LoginFuncionario {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Login: ");
+        System.out.println("Login com CPF(com pontos e digito): ");
         String login = input.nextLine();
 
         System.out.println("Senha: ");

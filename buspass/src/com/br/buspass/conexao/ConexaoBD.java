@@ -26,6 +26,34 @@ public class ConexaoBD {
     private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
     private final String QUERY2 = "";
+    private final String QUERY3 = "";
+
+    public static Aluno LoginAluno(Aluno login_aluno) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+                // Step 2:Create a statement using connection object
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("SELECT cpf, senha FROM funcionario WHERE cpf = ? and senha = ?;");) {
+            preparedStatement.setInt(1, login_aluno.getMatricula());
+            preparedStatement.setString(2, login_aluno.getSenha());
+            // Step 3: Execute the query or update query
+
+            ResultSet resultset = preparedStatement.executeQuery();
+
+            Aluno aluno_logado = new Aluno();
+
+            if(resultset.next()){
+                
+                aluno_logado.setMatricula(resultset.getInt("matricula"));
+                aluno_logado.setSenha(resultset.getString("senha"));
+            } 
+           return aluno_logado;
+
+            // Step 4: Process the ResultSet object.
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return null;
+    }
 
     public static Funcionario LoginFunc(Funcionario login_fun) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
