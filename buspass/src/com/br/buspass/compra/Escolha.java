@@ -2,23 +2,23 @@ package com.br.buspass.compra;
 
 public class Escolha {
 
-    private String pagamento;
-    private String matricula;
+    private int num_horario;
+    private int matricula;
 
-    public String getPagamento() {
-        return pagamento;
+    public int getNum_horario() {
+        return num_horario;
     }
 
-    public void setPagamento(String pagamento) {
-        this.pagamento = pagamento;
+    public void setNum_horario(int num_horario) {
+        this.num_horario = num_horario;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setMatricula(int mat) {
+        this.matricula = mat;
     }
 
 }

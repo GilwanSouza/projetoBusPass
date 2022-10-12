@@ -29,22 +29,43 @@ public class ConexaoBD {
     private final String QUERY2 = "";
     private final String QUERY3 = "";
 
-    public static Escolha CompraPassagem(Escolha aluno_compra) {
+    public static void EscolhaHorario(Escolha escolha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
                 // Step 2:Create a statement using connection object
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("SELECT * FROM horarios;");) {
+                        .prepareStatement("INSERT INTO horario_aluno (numero_horario, matricula_aluno) VALUES (?, ?);");) {
+            preparedStatement.setInt(1, escolha.getMatricula());
+            preparedStatement.setInt(2, escolha.getNum_horario());
+            // Step 3: Execute the query or update query
+            preparedStatement.executeUpdate();
+            // Step 4: Process the ResultSet object.
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
+    public static void CompraPassagem() {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+                // Step 2:Create a statement using connection object
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("SELECT * FROM horario;");) {
             // Step 3: Execute the query or update query
 
             ResultSet resultset = preparedStatement.executeQuery();
 
-            System.out.println(resultset);
+        while(resultset.next()){
+            System.out.println(resultset.getInt("numero") + " ");
+            System.out.println(resultset.getString("hr_ida") + " ");
+            System.out.println(resultset.getString("hr_volta") + " ");
+            System.out.println(resultset.getDate("dt_viagem") + " ");
+        }
 
             // Step 4: Process the ResultSet object.
         } catch (SQLException e) {
             printSQLException(e);
         }
-        return null;
     }
 
     public static Aluno LoginAluno(Aluno login_aluno) {
