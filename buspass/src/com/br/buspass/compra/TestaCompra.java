@@ -1,19 +1,10 @@
-package br.com.jeilsonbarbalho.ap3.aula5.questoes.projetosupermercado;
-
-/*
-Identifique as classes e implemente um programa para a seguinte especificação: 
-Um supermercado vende diferentes tipos de produtos. Cada produto tem um preço e uma 
-quantidade em estoque. Um pedido de um cliente é composto de itens, onde cada item 
-especifica o produto que o cliente deseja e a respectiva quantidade. Esse pedido pode 
-ser pago em dinheiro, pix ou cartão. Pense no "é um" versus "tem um" 
-visto em aula. Faça uma classe com o método main() que teste as funcionalidades das classes.
-*/
+package com.br.buspass.compra;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TestaSuperMercado {
+public class TestaCompra {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         Scanner inputText = new Scanner(System.in);

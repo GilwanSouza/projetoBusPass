@@ -1,4 +1,4 @@
-package br.com.jeilsonbarbalho.ap3.aula5.questoes.projetosupermercado;
+package com.br.buspass.compra;
 
 import java.util.ArrayList;
 import java.util.List;
