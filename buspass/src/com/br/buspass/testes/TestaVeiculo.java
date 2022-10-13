@@ -16,7 +16,7 @@ public class TestaVeiculo {
             System.out.println("\n Qual a numeração de chassi do veículo? \n");
             String chassi = input.nextLine();
 
-            System.out.println("\n Qual o modelo e cor do veículo? \n");
+            System.out.println("\n Qual o modelo e a cor do veículo? \n");
             String modelo = input.nextLine();
 
             System.out.println("\n Qual o ano do veículo? \n");
@@ -29,7 +29,7 @@ public class TestaVeiculo {
             veiculo.setAno(ano);
             veiculo.setModelo(modelo);
             veiculo.setChassi(chassi);
-            veiculo.setString(placa);
+            veiculo.setPlaca(placa);
             veiculo.setId_vel(numero);
    
             ConexaoBD.cadastroVeiculo(veiculo);
