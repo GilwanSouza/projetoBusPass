@@ -1,6 +1,5 @@
-package com.br.buspass;
+package com.br.buspass.classes;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 //[RF 011] O sistema deve possibilitar o motorista ou empresa definir seus horários de ida e volta.

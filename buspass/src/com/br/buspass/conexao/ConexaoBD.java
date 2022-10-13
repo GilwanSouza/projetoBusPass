@@ -7,12 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.br.buspass.Aluno;
-import com.br.buspass.Funcionario;
-import com.br.buspass.Horario;
-import com.br.buspass.LoginFuncionario;
-import com.br.buspass.VagaVeiculo;
-import com.br.buspass.Veiculo;
+import com.br.buspass.classes.Aluno;
+import com.br.buspass.classes.Funcionario;
+import com.br.buspass.classes.Horario;
+import com.br.buspass.classes.VagaVeiculo;
+import com.br.buspass.classes.Veiculo;
 import com.br.buspass.compra.Escolha;
 
 /**
@@ -26,14 +25,12 @@ public class ConexaoBD {
     private final static String user = "postgres";
     private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
-    private final String QUERY2 = "";
-    private final String QUERY3 = "";
 
     public static void EscolhaHorario(Escolha escolha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
                 // Step 2:Create a statement using connection object
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("INSERT INTO horario_aluno (numero_horario, matricula_aluno) VALUES (?, ?);");) {
+                        .prepareStatement("INSERT INTO horario_aluno (matricula_aluno, numero_viagem) VALUES (?, ?);");) {
             preparedStatement.setInt(1, escolha.getMatricula());
             preparedStatement.setInt(2, escolha.getNum_horario());
             // Step 3: Execute the query or update query

@@ -1,6 +1,4 @@
-package com.br.buspass;
-
-import java.time.LocalDate;
+package com.br.buspass.classes;
 
 /*
 [RF 021] O sistema deve possibilitar o cadastro de veículo, com informações como placa, chassi, 
@@ -21,13 +19,6 @@ public class Veiculo {
 
     public void setId_vel(int id_vel) {
         this.id_vel = id_vel;
-    }
-
-    public Veiculo() {
-        this.placa = placa;
-        this.chassi = chassi;
-        this.modelo = modelo;
-        this.ano = ano;
     }
 
     public String getPlaca() {

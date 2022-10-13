@@ -1,4 +1,4 @@
-package com.br.buspass;
+package com.br.buspass.classes;
 
 /* 
 [RF 002] O sistema deve possibilitar que todos os tipos de usuários tenham no seu cadastro informações como: 

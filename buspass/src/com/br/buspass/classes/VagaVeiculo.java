@@ -1,4 +1,4 @@
-package com.br.buspass;
+package com.br.buspass.classes;
 
 /* 
 [RF 007] O sistema deve possibilitar o cadastro ao motorista ou empresa de quantas vagas o veículo tem. 

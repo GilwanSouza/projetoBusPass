@@ -1,4 +1,4 @@
-package com.br.buspass;
+package com.br.buspass.classes;
 
 /*
 [RF 003] O sistema deve possibilitar o cadastro de um usuário funcionário através do preenchimento dos seguintes dados: 
