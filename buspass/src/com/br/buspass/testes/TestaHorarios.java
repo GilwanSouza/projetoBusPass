@@ -29,8 +29,6 @@ public class TestaHorarios {
             String dtViagem = input.nextLine();
 
             int numero = random.nextInt(10000, 99999);
-
-            
             
             Horario horario = new Horario();
             horario.setDataViagem(LocalDate.parse(dtViagem, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
@@ -38,7 +36,6 @@ public class TestaHorarios {
             horario.setHrVolta(hrVolta);
             horario.setNumero(numero);
 
-            
             ConexaoBD.cadastroHorario(horario);
  
         }
