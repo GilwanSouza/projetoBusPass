@@ -21,9 +21,9 @@ import com.br.buspass.compra.Escolha;
 
 public class ConexaoBD {
 
-    private final static String url = "jdbc:postgresql://localhost:1234/teste";
+    private final static String url = "jdbc:postgresql://localhost:5432/teste";
     private final static String user = "postgres";
-    private final static String password = "admin";
+    private final static String password = "5836";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
 
     public static void EscolhaHorario(Escolha escolha) {

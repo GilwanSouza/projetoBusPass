@@ -28,7 +28,7 @@ public class TestaHorarios {
             System.out.println("\n Qual data do horario disponibilizado? \n");
             String dtViagem = input.nextLine();
 
-            int numero = random.nextInt(10000, 99999);
+            int numero = random.nextInt(10000);
             
             Horario horario = new Horario();
             horario.setDataViagem(LocalDate.parse(dtViagem, DateTimeFormatter.ofPattern("dd/MM/yyyy")));

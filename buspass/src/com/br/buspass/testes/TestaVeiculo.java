@@ -23,7 +23,7 @@ public class TestaVeiculo {
             int ano = input.nextInt();
 
             Random random = new Random();
-            int numero = random.nextInt(10000, 99999);
+            int numero = random.nextInt(10000);
 
             Veiculo veiculo = new Veiculo(); 
             veiculo.setAno(ano);
