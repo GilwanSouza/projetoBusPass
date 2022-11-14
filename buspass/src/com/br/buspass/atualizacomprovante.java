@@ -1,5 +1,25 @@
 package com.br.buspass;
 
+
+//para enviar imagem
+ByteArrayOutputStream stream = new ByteArrayOutputStream();
+bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+byte[] imgByteArray = stream.toByteArray();
+
+String imgArray = Base64.encodeToString(imgByteArray, Base64.DEFAULT);
+JSONObject jsonImg = new JSONObject().put("imgByteArray", imgArray);
+
+//para receber imagem
+JSONObject response = new JSONObject(responseJSON);
+String imgBytes = responsegetString("imagem");
+
+byte[] imgRecebida = Base64.decode(imgBytes, Base64.DEFAULT);
+Bitmap bitNew = BitmapFactory.decodeByteArray(imgRecebida, 0, imgRecebida.length);
+
+//se der merda
+final byte[] imgRecebida = Base64.decode(imgBytes.getBytes(), Base64.DEFAULT);
+
+/* 
 import java.util.*;
 import java.io.*;
 import com.br.buspass.conexao.ConexaoBD;
@@ -31,4 +51,4 @@ HttpEntity entity = MultipartEntityBuilder
 
     String json = new Scanner(stream).useDelimiter("\\A").next();
     System.out.println("\nJSON Response:\n");
-    System.out.println(prettify(json));
+    System.out.println(prettify(json));*/
