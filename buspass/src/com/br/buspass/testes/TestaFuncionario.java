@@ -1,5 +1,7 @@
 package com.br.buspass.testes;
 
+import java.util.Random;
+
 /*
 [RF 003] O sistema deve possibilitar o cadastro de um usuário funcionário através do preenchimento dos seguintes dados: 
 nome, foto, CPF, senha e informações do veículo.
@@ -13,30 +15,29 @@ import com.br.buspass.conexao.ConexaoBD;
 public class TestaFuncionario {
     public static void main(String[] args) throws Exception {
         try (Scanner entrada = new Scanner(System.in)) {
-            String Nome;
-            String CPF;
-            String Senha;
-            int id_veiculo;
+            Random random = new Random();
 
             System.out.println("\nInforme seu nome completo: \n");
-            Nome = entrada.nextLine();
+            String Nome = entrada.nextLine();
 
             System.out.println("\nInforme seu CPF: \n");
-            CPF = entrada.nextLine();
+            String CPF = entrada.nextLine();
 
             System.out.print("\nInforme sua senha: \n");
-            Senha = entrada.nextLine();
+            String Senha = entrada.nextLine();
 
             System.out.println("\nInforme o ID do veiculo que dirige: \n");
-            id_veiculo = entrada.nextInt();
+            int id_veiculo = entrada.nextInt();
+
+            int id_funcio = random.nextInt(10000);
 
             Funcionario funcionario = new Funcionario();
             funcionario.setNome(Nome);
             funcionario.setCPF(CPF);
             funcionario.setSenha(Senha);
+            funcionario.setId_funcio(id_funcio);
             funcionario.setId_veiculo(id_veiculo);
 
-            
             ConexaoBD.cadastroFuncionario(funcionario);
         }
 

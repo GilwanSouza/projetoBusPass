@@ -187,7 +187,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("SELECT cpf, senha FROM funcionario WHERE cpf = ? and senha = ?;");) {
+                        .prepareStatement("SELECT matricula, senha FROM aluno WHERE matricula = ? and senha = ?;");) {
             preparedStatement.setInt(1, login_aluno.getMatricula());
             preparedStatement.setString(2, login_aluno.getSenha());
 
@@ -233,22 +233,25 @@ public class ConexaoBD {
         return null;
     }
 
-    public static void cadastroFuncionario(Funcionario funcionario) {
+    public static boolean cadastroFuncionario(Funcionario funcionario) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_vel) VALUES (?, ?, ?, ?);");) {
+                        .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_funcio, id_vel) VALUES (?, ?, ?, ?, ?);");) {
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCPF());
             preparedStatement.setString(3, funcionario.getSenha());
-            preparedStatement.setInt(4, funcionario.getId_veiculo());
+            preparedStatement.setInt(4, funcionario.getId_funcio());
+            preparedStatement.setInt(5, funcionario.getId_veiculo());
 
             preparedStatement.executeUpdate();
+
+            return true;
 
         } catch (SQLException e) {
             printSQLException(e);
         }
-
+        return false;
     }
 
     public static void cadastroVaga(VagaVeiculo vaga) {
@@ -286,7 +289,7 @@ public class ConexaoBD {
 
     }
 
-    public static void cadastroAluno(Aluno aluno) {
+    public static boolean cadastroAluno(Aluno aluno) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection.prepareStatement(
@@ -299,9 +302,12 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return false;
     }
 
     public static void cadastroHorario(Horario horario) {

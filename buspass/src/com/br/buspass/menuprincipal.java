@@ -21,34 +21,43 @@ public class menuprincipal {
 
         if (usuario == 1) {
             System.out.println(
-                    "\n Deseja logar como aluno ou funcionario? \n \n Digite 1 para logar como aluno e 2 para funcionario");
+                    "\n Deseja logar como aluno ou funcionario? \n Digite 1 para logar como aluno e 2 para funcionario");
             login = input.nextInt();
 
             switch (usuario) {
                 case 1:
-                    try (Scanner entradScanner = new Scanner(System.in)) {
+                    Aluno logadoAluno = null;
+                    try (Scanner entradScanner = new Scanner(System.in);
+                        Scanner entTexto = new Scanner(System.in)) {
                         System.out.println("Login com matricula: ");
-                        int matricula = input.nextInt();
+                        int matricula = entradScanner.nextInt();
 
                         System.out.println("Senha: ");
-                        String senha = input.nextLine();
+                        String senha = entTexto.nextLine();
 
                         Aluno log_aluno = new Aluno();
                         log_aluno.setMatricula(matricula);
                         log_aluno.setSenha(senha);
 
-                        ConexaoBD.LogarAluno(log_aluno);
+                        logadoAluno = ConexaoBD.LogarAluno(log_aluno);
                     } catch (Exception exception) {
                         System.err.println(exception.getMessage());
                     }
+
+                    if (logadoAluno != null) {
+                        menuAluno.main(args);
+                    } else {
+                        System.out.println("\n Login não existe \n");                      
+                    }                     
+
                     break;
                 case 2:
                     try (Scanner entScanner = new Scanner(System.in)) {
                         System.out.println("\n Login com CPF(com pontos e digitos): \n");
-                        String login2 = input.nextLine();
+                        String login2 = entScanner.nextLine();
 
                         System.out.println("\n Senha: \n");
-                        String senha = input.nextLine();
+                        String senha = entScanner.nextLine();
 
                         Funcionario log_fun = new Funcionario();
                         log_fun.setCPF(login);
@@ -64,7 +73,7 @@ public class menuprincipal {
                     .println("\n Se deseja se cadastrar como aluno digite 1, caso seja como funcionario digite 2: \n");
             cadastro = input.nextInt();
 
-            switch (usuario) {
+            switch (cadastro) {
                 case 1:
                     try (Scanner entrada = new Scanner(System.in)) {
 
@@ -90,9 +99,7 @@ public class menuprincipal {
                         aluno.setSenha(Senha);
                         aluno.setMatricula(Matricula);
 
-                        ConexaoBD.cadastroAluno(aluno);
-
-                        if (aluno != null) {
+                        if (ConexaoBD.cadastroAluno(aluno)) {
                             System.out.println("\n Aluno cadastrado com sucesso! \n");
                         } else {
                             System.err.println("\n O aluno não foi cadasdrado! \n");
@@ -122,16 +129,10 @@ public class menuprincipal {
                         funcionario.setSenha(Senha);
                         funcionario.setId_veiculo(id_veiculo);
 
-                        ConexaoBD.cadastroFuncionario(funcionario);
-
-                        if (funcionario != null) {
-
+                        if (ConexaoBD.cadastroFuncionario(funcionario)) {
                             System.out.println("\n Funcionario cadastrado com sucesso! \n");
-
                         } else {
-
                             System.out.println("\n O funcionario não foi cadasdrado! \n");
-
                         }
                     } catch(Exception exception){
                         System.out.println(exception.getMessage());
