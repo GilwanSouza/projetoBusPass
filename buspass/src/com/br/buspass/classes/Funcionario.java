@@ -1,10 +1,5 @@
 package com.br.buspass.classes;
 
-/*
-[RF 003] O sistema deve possibilitar o cadastro de um usuário funcionário através do preenchimento dos seguintes dados: 
-nome, foto, CPF, senha e informações do veículo.
-*/
-
 public class Funcionario {
  
     private String Nome;
@@ -52,5 +47,8 @@ public class Funcionario {
         "\nSenha = "                  + Senha   +
         "\nPlaca = "                  + id_veiculo   +
         "\n";
+    }
+
+    public void setCPF(int login) {
     }
 }
