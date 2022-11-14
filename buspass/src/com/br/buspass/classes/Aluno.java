@@ -1,10 +1,5 @@
 package com.br.buspass.classes;
 
-/* 
-[RF 002] O sistema deve possibilitar que todos os tipos de usuários tenham no seu cadastro informações como: 
-Nome, número de telefone, CPF, senha e foto. Caso seja um tipo usuário Aluno, deve-se guardar o número da matrícula. 
-*/
-
 public class Aluno {
     
     private String Nome;
