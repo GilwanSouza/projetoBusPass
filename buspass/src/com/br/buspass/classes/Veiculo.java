@@ -70,4 +70,8 @@ public class Veiculo {
     public void setString(String placa) {
     }
 
+    public boolean next() {
+        return false;
+    }
+
 }

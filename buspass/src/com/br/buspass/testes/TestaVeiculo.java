@@ -25,17 +25,22 @@ public class TestaVeiculo {
             Random random = new Random();
             int numero = random.nextInt(10000);
 
-            Veiculo veiculo = new Veiculo(); 
+            Veiculo veiculo = new Veiculo();
             veiculo.setAno(ano);
             veiculo.setModelo(modelo);
             veiculo.setChassi(chassi);
             veiculo.setPlaca(placa);
             veiculo.setId_vel(numero);
-   
+
             ConexaoBD.cadastroVeiculo(veiculo);
+
+            if (veiculo != null) {
+                System.out.println("\n Veiculo cadastrado com sucesso! \n");
+            } else {
+                System.err.println("\n O veículo não foi cadasdrado! \n");
+            }
         }
 
-        System.out.println("\nVeiculo cadastrado com sucesso!!!\n");
     }
 
 }

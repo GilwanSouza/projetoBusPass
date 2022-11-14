@@ -38,9 +38,13 @@ public class TestaHorarios {
 
             ConexaoBD.cadastroHorario(horario);
  
+            if (horario != null) {
+                System.out.println("\n Horarios cadastrado com sucesso! \n");
+            } else {
+                System.err.println("\n Os horarios não foram cadasdrados! \n");
+            }
         }
 
-        System.out.println("\nViagem cadastrada com sucesso!\n");
     }
 
 }

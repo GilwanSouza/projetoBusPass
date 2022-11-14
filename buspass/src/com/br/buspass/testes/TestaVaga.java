@@ -27,6 +27,10 @@ public class TestaVaga {
     
         ConexaoBD.cadastroVaga(vagas);
 
-        System.out.println("\nVagas do veiculo cadastradas com sucesso!!!\n");
+        if (vagas != null) {
+            System.out.println("\n Vagas cadastrado com sucesso! \n");
+        } else {
+            System.err.println("\n As Vagas não foram cadasdradas! \n");
+        }
     }
 }

@@ -21,21 +21,65 @@ import com.br.buspass.compra.Escolha;
 
 public class ConexaoBD {
 
-    private final static String url = "jdbc:postgresql://localhost:5432/teste";
+    private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
-    private final static String password = "5836";
+    private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
+
+    public static void AtualizarNome(Funcionario funcio_nome) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+                
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("ALTER TABLE ADD funcionario (nome) VALUES (?);");) {
+            preparedStatement.setString(1, funcio_nome.getNome());
+            
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
+    public static void AtualizarCPF(Funcionario funcio_cfp) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+              
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("ALTER TABLE ADD funcionario (cpf) VALUES (?);");) {
+            preparedStatement.setString(2, funcio_cfp.getCPF());
+   
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+    
+    public static void AtualizarSenha(Funcionario funcio_senha) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+              
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("ALTER TABLE ADD funcionario (senha) VALUES (?);");) {
+            preparedStatement.setString(3, funcio_senha.getSenha());
+   
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
 
     public static void EscolhaHorario(Escolha escolha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("INSERT INTO horario_aluno (matricula_aluno, numero_viagem) VALUES (?, ?);");) {
             preparedStatement.setInt(1, escolha.getMatricula());
             preparedStatement.setInt(2, escolha.getNum_horario());
-            // Step 3: Execute the query or update query
-            preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
+            
+            preparedStatement.executeUpdate();    
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -45,10 +89,9 @@ public class ConexaoBD {
 
     public static void CompraPassagem() {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("SELECT * FROM horario;");) {
-            // Step 3: Execute the query or update query
 
             ResultSet resultset = preparedStatement.executeQuery();
 
@@ -59,20 +102,18 @@ public class ConexaoBD {
             System.out.println(resultset.getDate("dt_viagem") + " ");
         }
 
-            // Step 4: Process the ResultSet object.
         } catch (SQLException e) {
             printSQLException(e);
         }
     }
 
-    public static Aluno LoginAluno(Aluno login_aluno) {
+    public static Aluno LogarAluno(Aluno login_aluno) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+               
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("SELECT cpf, senha FROM funcionario WHERE cpf = ? and senha = ?;");) {
             preparedStatement.setInt(1, login_aluno.getMatricula());
             preparedStatement.setString(2, login_aluno.getSenha());
-            // Step 3: Execute the query or update query
 
             ResultSet resultset = preparedStatement.executeQuery();
 
@@ -85,7 +126,6 @@ public class ConexaoBD {
             } 
            return aluno_logado;
 
-            // Step 4: Process the ResultSet object.
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -94,12 +134,11 @@ public class ConexaoBD {
 
     public static Funcionario LoginFunc(Funcionario login_fun) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("SELECT cpf, senha FROM funcionario WHERE cpf = ? and senha = ?;");) {
             preparedStatement.setString(1, login_fun.getCPF());
             preparedStatement.setString(2, login_fun.getSenha());
-            // Step 3: Execute the query or update query
 
             ResultSet resultset = preparedStatement.executeQuery();
 
@@ -112,7 +151,6 @@ public class ConexaoBD {
             } 
            return fun_logado;
 
-            // Step 4: Process the ResultSet object.
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -121,16 +159,15 @@ public class ConexaoBD {
 
     public static void cadastroFuncionario(Funcionario funcionario) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+              
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_vel) VALUES (?, ?, ?, ?);");) {
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCPF());
             preparedStatement.setString(3, funcionario.getSenha());
             preparedStatement.setInt(4, funcionario.getId_veiculo());
-            // Step 3: Execute the query or update query
+   
             preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -140,14 +177,13 @@ public class ConexaoBD {
 
     public static void cadastroVaga(VagaVeiculo vaga) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection
                         .prepareStatement("INSERT INTO vagas (vagas, id_vel) VALUES (?, ?);");) {
             preparedStatement.setInt(1, vaga.getVaga());
             preparedStatement.setInt(2, vaga.getId_Search());
-            // Step 3: Execute the query or update query
+            
             preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -157,7 +193,7 @@ public class ConexaoBD {
 
     public static void cadastroVeiculo(Veiculo veiculo) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection.prepareStatement(
                         "INSERT INTO veiculo (ano, modelo, chassi, placa, id_vel) VALUES (?, ?, ?, ?, ?);");) {
             preparedStatement.setInt(1, veiculo.getAno());
@@ -165,9 +201,8 @@ public class ConexaoBD {
             preparedStatement.setString(3, veiculo.getChassi());
             preparedStatement.setString(4, veiculo.getPlaca());
             preparedStatement.setInt(5, veiculo.getId_vel());
-            // Step 3: Execute the query or update query
+           
             preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -177,7 +212,7 @@ public class ConexaoBD {
 
     public static void cadastroAluno(Aluno aluno) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection.prepareStatement(
                         "INSERT INTO aluno (nome, num_tel, cpf, senha, matricula) VALUES (?, ?, ?, ?, ?);");) {
             preparedStatement.setString(1, aluno.getNome());
@@ -185,9 +220,8 @@ public class ConexaoBD {
             preparedStatement.setString(3, aluno.getCpf());
             preparedStatement.setString(4, aluno.getSenha());
             preparedStatement.setInt(5, aluno.getMatricula());
-            // Step 3: Execute the query or update query
+  
             preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -196,16 +230,15 @@ public class ConexaoBD {
 
     public static void cadastroHorario(Horario horario) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+                
                 PreparedStatement preparedStatement = connection.prepareStatement(
                         "INSERT INTO horario (numero, hr_ida, hr_volta, dt_viagem) VALUES (?, ?, ?, ?);");) {
             preparedStatement.setInt(1, horario.getNumero());
             preparedStatement.setString(2, horario.getHrIda());
             preparedStatement.setString(3, horario.getHrVolta());
             preparedStatement.setDate(4, Date.valueOf(horario.getDataViagem()));
-            // Step 3: Execute the query or update query
+            
             preparedStatement.executeUpdate();
-            // Step 4: Process the ResultSet object.
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -213,13 +246,13 @@ public class ConexaoBD {
     }
 
     public void getUserById() {
-        // Step 1: Establishing a Connection
+        
         try (Connection connection = DriverManager.getConnection(url, user, password);
-                // Step 2:Create a statement using connection object
+               
                 PreparedStatement preparedStatement = connection.prepareStatement(QUERY);) {
-            // Step 3: Execute the query or update query
+            
             ResultSet rs = preparedStatement.executeQuery();
-            // Step 4: Process the ResultSet object.
+            
             while (rs.next()) {
                 int matricula = rs.getInt("matricula");
                 String nome = rs.getString("nome");
