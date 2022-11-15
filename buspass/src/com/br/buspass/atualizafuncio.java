@@ -9,7 +9,8 @@ public class atualizafuncio {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para CPF ou 3 para senha \n");
+        System.out
+                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para CPF ou 3 para senha \n");
         int escolha = input.nextInt();
 
         while (escolha < 3) {

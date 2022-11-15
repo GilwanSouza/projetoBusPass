@@ -9,7 +9,7 @@ import com.br.buspass.logins.LoginAluno;
 
 public class menuprincipal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
         int usuario = 0;
@@ -52,6 +52,7 @@ public class menuprincipal {
 
                     break;
                 case 2:
+                    Funcionario funcioLogado = null;
                     try (Scanner entScanner = new Scanner(System.in)) {
                         System.out.println("\n Login com CPF(com pontos e digitos): \n");
                         String login2 = entScanner.nextLine();
@@ -63,10 +64,17 @@ public class menuprincipal {
                         log_fun.setCPF(login);
                         log_fun.setSenha(senha);
 
-                        ConexaoBD.LoginFunc(log_fun);
+                        funcioLogado = ConexaoBD.LoginFunc(log_fun);
                     } catch (Exception exception) {
                         System.err.println(exception.getMessage());
                     }
+
+                    if (funcioLogado != null) {
+                        menuFuncionario.main(args);
+                    } else {
+                        System.out.println("\n Login não existe \n");                      
+                    }
+
             }
         } else if (usuario == 2) {
             System.out
@@ -137,6 +145,9 @@ public class menuprincipal {
                     } catch(Exception exception){
                         System.out.println(exception.getMessage());
                     }
+                    break;
+
+                    
             }
         }
 

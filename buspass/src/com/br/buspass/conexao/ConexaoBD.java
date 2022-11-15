@@ -10,14 +10,10 @@ import java.sql.SQLException;
 import com.br.buspass.classes.Aluno;
 import com.br.buspass.classes.Funcionario;
 import com.br.buspass.classes.Horario;
+import com.br.buspass.classes.Pagamento;
 import com.br.buspass.classes.VagaVeiculo;
 import com.br.buspass.classes.Veiculo;
 import com.br.buspass.compra.Escolha;
-
-/**
- **
- * @author Samara
- */
 
 public class ConexaoBD {
 
@@ -26,6 +22,56 @@ public class ConexaoBD {
     private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
 
+    public static void PagamentoAluno(Pagamento pago) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement(
+                                "INSERT INTO pagamento (mes_pago, matricula_aluno, dia_pago) VALUES (?, ?, ?);");) {
+            preparedStatement.setString(1, pago.getMes());
+            preparedStatement.setInt(2, pago.getMat_pagador());
+            preparedStatement.setString(3, pago.getDt_pago());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
+    public static void VisualizarDados(Aluno visualizarAluno) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("SELECT FROM aluno (nome, num_tel, matricula) VALUES (?, ?, ?);");) {
+            preparedStatement.setString(1, visualizarAluno.getNome());
+            preparedStatement.setString(2, visualizarAluno.getNumero());
+            preparedStatement.setInt(5, visualizarAluno.getMatricula());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+    
+    public static void ExcluirVeiculo(Veiculo vel) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("DELETE FROM veiculo WHERE (id_vel) = (?);");) {
+            preparedStatement.setInt(5, vel.getId_vel());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+    
     public static void AtualizarNomeAluno(Aluno aluno_nome) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
