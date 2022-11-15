@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
 import com.br.buspass.classes.Funcionario;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaFuncionario {
+public class CadastroFuncionario {
     public static void main(String[] args) throws Exception {
         try (Scanner entrada = new Scanner(System.in)) {
             Random random = new Random();
@@ -38,9 +38,11 @@ public class TestaFuncionario {
             funcionario.setId_funcio(id_funcio);
             funcionario.setId_veiculo(id_veiculo);
 
-            ConexaoBD.cadastroFuncionario(funcionario);
+            if (ConexaoBD.cadastroFuncionario(funcionario)) {
+                System.out.println("\n Funcionario cadastrado com sucesso! \n");
+            } else {
+                System.out.println("\n O funcionario não foi cadasdrado! \n");
+            }
         }
-
-        System.out.println("\nFuncuonario cadastrado com sucesso!!!\n");
     }
 }

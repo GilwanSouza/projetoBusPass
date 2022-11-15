@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 /* 
 [RF 002] O sistema deve possibilitar que todos os tipos de usuários tenham no seu cadastro informações como: 
@@ -10,7 +10,7 @@ import java.util.Scanner;
 import com.br.buspass.classes.Aluno;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaAluno {
+public class CadastroAluno {
     public static void main(String[] args) throws Exception {
         try (Scanner entrada = new Scanner(System.in)) {
             String Nome;
@@ -41,10 +41,12 @@ public class TestaAluno {
             aluno.setSenha(Senha);
             aluno.setMatricula(Matricula);
    
-            ConexaoBD.cadastroAluno(aluno);
+            if (ConexaoBD.cadastroAluno(aluno)) {
+                System.out.println("\n Aluno cadastrado com sucesso! \n");
+            } else {
+                System.err.println("\n O aluno não foi cadasdrado! \n");
+            }
         }
-
-        System.out.println("\nAluno cadastrado com sucesso!!!\n");
     }
 
 }

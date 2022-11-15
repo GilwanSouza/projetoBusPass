@@ -2,11 +2,14 @@ package com.br.buspass;
 
 import java.util.Scanner;
 
-import com.br.buspass.testes.TestaComprovante;
-import com.br.buspass.testes.TestaVaga;
-import com.br.buspass.testes.TestaVeiculo;
+import com.br.buspass.cadastros.CadastroComprovante;
+import com.br.buspass.cadastros.CadastroVaga;
+import com.br.buspass.cadastros.CadastroVeiculo;
+import com.br.buspass.funcionalidades.AtualizaFuncio;
+import com.br.buspass.funcionalidades.ExcluirDadosVel;
+import com.br.buspass.funcionalidades.VisuDadosAluno;
 
-public class menuFuncionario {
+public class MenuFuncionario {
     
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
@@ -22,11 +25,11 @@ public class menuFuncionario {
 
         switch (entrada) {
             case 1:
-                TestaVaga.main(args);                
+                CadastroVaga.main(args);                
                 break;
         
             case 2:
-                TestaVeiculo.main(args);
+                CadastroVeiculo.main(args);
                 break;
             
             case 3:
@@ -38,11 +41,11 @@ public class menuFuncionario {
                 break;
             
             case 5:
-                atualizafuncio.main(args);
+                AtualizaFuncio.main(args);
                 break;
 
             case 6:
-                TestaComprovante.main(args);
+                CadastroComprovante.main(args);
                 break;
         }
 

@@ -1,10 +1,10 @@
-package com.br.buspass;
+package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 
-import com.br.buspass.testes.TestaVeiculo;
+import com.br.buspass.cadastros.CadastroVeiculo;
 
-public class trocarveiculo {
+public class TrocarVeiculo {
     public static void main(String[] args) {
     Scanner entrada = new Scanner(System.in);
             
@@ -17,7 +17,7 @@ public class trocarveiculo {
                 break;
             
             case 2:
-                TestaVeiculo.main(args);
+                CadastroVeiculo.main(args);
         }  
     }
 }

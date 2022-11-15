@@ -1,4 +1,4 @@
-package com.br.buspass;
+package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 

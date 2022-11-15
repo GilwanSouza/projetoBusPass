@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.br.buspass.classes.Veiculo;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaVeiculo {
+public class CadastroVeiculo {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
 
@@ -32,15 +32,11 @@ public class TestaVeiculo {
             veiculo.setPlaca(placa);
             veiculo.setId_vel(numero);
 
-            ConexaoBD.cadastroVeiculo(veiculo);
-
-            if (veiculo != null) {
+            if (ConexaoBD.cadastroVeiculo(veiculo)) {
                 System.out.println("\n Veiculo cadastrado com sucesso! \n");
             } else {
                 System.err.println("\n O veículo não foi cadasdrado! \n");
             }
         }
-
     }
-
 }

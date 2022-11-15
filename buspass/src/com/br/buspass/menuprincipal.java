@@ -8,7 +8,7 @@ import com.br.buspass.classes.Funcionario;
 import com.br.buspass.conexao.ConexaoBD;
 import com.br.buspass.logins.LoginAluno;
 
-public class menuprincipal {
+public class MenuPrincipal {
 
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
@@ -47,7 +47,7 @@ public class menuprincipal {
                     }
 
                     if (logadoAluno != null) {
-                        menuAluno.main(args);
+                        MenuAluno.main(args);
                     } else {
                         System.out.println("\n Login não existe \n");                      
                     }                     
@@ -72,7 +72,7 @@ public class menuprincipal {
                     }
 
                     if (funcioLogado != null) {
-                        menuFuncionario.main(args);
+                        MenuFuncionario.main(args);
                     } else {
                         System.out.println("\n Login não existe \n");                      
                     }

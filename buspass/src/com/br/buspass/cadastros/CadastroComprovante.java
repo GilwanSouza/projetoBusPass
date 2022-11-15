@@ -1,11 +1,11 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 import java.util.Scanner;
 
 import com.br.buspass.classes.Pagamento;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaComprovante {
+public class CadastroComprovante {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -24,7 +24,11 @@ public class TestaComprovante {
         pagou.setMat_pagador(mat_pagador);
         pagou.setDt_pago(dt_pago);
 
-        ConexaoBD.PagamentoAluno(pagou);
-
+        if (ConexaoBD.PagamentoAluno(pagou)) {
+            System.out.println("\n Pagamento do aluno cadastrado com sucesso! \n");
+        } else {
+            System.err.println("\n O pagamento do aluno não foi cadasdrado! \n");
+        }
+        input.close();
     }
 }

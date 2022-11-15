@@ -1,10 +1,10 @@
-package com.br.buspass;
+package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 
 import com.br.buspass.conexao.ConexaoBD;
 
-public class atualizafuncio {
+public class AtualizaFuncio {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

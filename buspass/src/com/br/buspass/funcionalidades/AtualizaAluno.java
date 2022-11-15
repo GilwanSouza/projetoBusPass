@@ -1,16 +1,17 @@
-package com.br.buspass;
+package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 
+import com.br.buspass.MenuAluno;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class atualizaaluno {
+public class AtualizaAluno {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
         System.out
-                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha ou 5 para Matricula \n");
+                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha, 5 para Matricula ou 6 para voltar ao menu \n");
         int escolha = input.nextInt();
 
         while (escolha <= 5) {
@@ -35,10 +36,14 @@ public class atualizaaluno {
 
                 ConexaoBD.AtualizarMatriculaAluno(null);
 
+            } else if (escolha == 6) {
+
+                MenuAluno.main(args);
+
             } else {
 
                 System.out.println("\n Infome algum valor valido \n");
-
+                
             }
 
         }

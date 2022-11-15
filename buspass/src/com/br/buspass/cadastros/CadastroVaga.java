@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 /* 
 [RF 007] O sistema deve possibilitar o cadastro ao motorista ou empresa de quantas vagas o veículo tem. 
@@ -9,7 +9,7 @@ import java.util.Scanner;
 import com.br.buspass.classes.VagaVeiculo;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaVaga {
+public class CadastroVaga {
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
 
@@ -24,10 +24,8 @@ public class TestaVaga {
         VagaVeiculo vagas = new VagaVeiculo(); 
         vagas.setVaga(quantidade);
         vagas.setId_Search(id_Search);
-    
-        ConexaoBD.cadastroVaga(vagas);
 
-        if (vagas != null) {
+        if (ConexaoBD.cadastroVaga(vagas)) {
             System.out.println("\n Vagas cadastrado com sucesso! \n");
         } else {
             System.err.println("\n As Vagas não foram cadasdradas! \n");

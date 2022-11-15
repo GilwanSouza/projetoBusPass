@@ -62,7 +62,7 @@ public class ConexaoBD {
 
     }
 
-    public static void PagamentoAluno(Pagamento pago) {
+    public static boolean PagamentoAluno(Pagamento pago) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -74,9 +74,12 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return false;
 
     }
 
@@ -247,7 +250,7 @@ public class ConexaoBD {
 
     }
 
-    public static void EscolhaHorario(Escolha escolha) {
+    public static boolean EscolhaHorario(Escolha escolha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -258,9 +261,12 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return false;
 
     }
 
@@ -354,7 +360,7 @@ public class ConexaoBD {
         return false;
     }
 
-    public static void cadastroVaga(VagaVeiculo vaga) {
+    public static boolean cadastroVaga(VagaVeiculo vaga) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -364,13 +370,17 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
 
+        return false;
+
     }
 
-    public static void cadastroVeiculo(Veiculo veiculo) {
+    public static boolean cadastroVeiculo(Veiculo veiculo) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection.prepareStatement(
@@ -383,9 +393,12 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return false;
 
     }
 
@@ -410,7 +423,7 @@ public class ConexaoBD {
         return false;
     }
 
-    public static void cadastroHorario(Horario horario) {
+    public static boolean cadastroHorario(Horario horario) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection.prepareStatement(
@@ -422,9 +435,12 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return false;
     }
 
     public void getUserById() {

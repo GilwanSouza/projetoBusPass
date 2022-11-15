@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 import com.br.buspass.classes.Horario;
 import com.br.buspass.conexao.ConexaoBD;
 
-public class TestaHorarios {
+public class CadastroHorarios {
 
     public static void main(String[] args) {
 
@@ -35,10 +35,8 @@ public class TestaHorarios {
             horario.setHrIda(hrIda);
             horario.setHrVolta(hrVolta);
             horario.setNumero(numero);
-
-            ConexaoBD.cadastroHorario(horario);
  
-            if (horario != null) {
+            if (ConexaoBD.cadastroHorario(horario)) {
                 System.out.println("\n Horarios cadastrado com sucesso! \n");
             } else {
                 System.err.println("\n Os horarios não foram cadasdrados! \n");

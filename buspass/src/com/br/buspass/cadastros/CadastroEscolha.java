@@ -1,4 +1,4 @@
-package com.br.buspass.testes;
+package com.br.buspass.cadastros;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ import com.br.buspass.compra.Escolha;
 import com.br.buspass.conexao.ConexaoBD;
 
 
-public class TestaEscolha {
+public class CadastroEscolha {
     public static void main(String[] args) throws Exception {
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("\nHorarios Disponiveis\n");
@@ -23,9 +23,11 @@ public class TestaEscolha {
             hr_viagem.setMatricula(mat);
             hr_viagem.setNum_horario(num_horario);
 
-            ConexaoBD.EscolhaHorario(hr_viagem);
+            if (ConexaoBD.EscolhaHorario(hr_viagem)) {
+                System.out.println("\n Horario escolhido com sucesso! \n");
+            } else {
+                System.err.println("\n O(s) horário(s) não foram cadasdrado(s)! \n");
+            }
         }
-
-        System.out.println("\n Aluno cadastrado na viagem!\n");
     }
 }

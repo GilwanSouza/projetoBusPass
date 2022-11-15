@@ -2,9 +2,10 @@ package com.br.buspass;
 
 import java.util.Scanner;
 
-import com.br.buspass.testes.TestaEscolha;
+import com.br.buspass.cadastros.CadastroEscolha;
+import com.br.buspass.funcionalidades.AtualizaAluno;
 
-public class menuAluno {
+public class MenuAluno {
     
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
@@ -15,12 +16,12 @@ public class menuAluno {
 
         switch (entrada) {
             case 1:
-                TestaEscolha.main(args);
+                CadastroEscolha.main(args);
                 
                 break;
         
             case 2:
-                atualizaaluno.main(args);
+                AtualizaAluno.main(args);
 
                 break;
         }
