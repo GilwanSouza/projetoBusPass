@@ -47,6 +47,6 @@ public class AtualizaAluno {
             }
 
         }
-
+        input.close();
     }
 }

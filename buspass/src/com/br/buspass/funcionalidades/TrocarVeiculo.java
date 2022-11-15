@@ -18,6 +18,7 @@ public class TrocarVeiculo {
             
             case 2:
                 CadastroVeiculo.main(args);
-        }  
+        }
+        entrada.close();  
     }
 }

@@ -36,7 +36,7 @@ public class AtualizaFuncio {
             }
 
         }
-
+        input.close();
     }
 
 }

@@ -18,5 +18,8 @@ public class VisuDadosAluno {
         visualisar.setMatricula(entrada);
 
         ConexaoBD.VisualizarDados(visualisar);
+
+        input.close();
     }
+       
 }

@@ -90,9 +90,21 @@ public class ConexaoBD {
                         .prepareStatement("SELECT FROM aluno (nome, num_tel, matricula) VALUES (?, ?, ?);");) {
             preparedStatement.setString(1, visualizarAluno.getNome());
             preparedStatement.setString(2, visualizarAluno.getNumero());
-            preparedStatement.setInt(5, visualizarAluno.getMatricula());
+            preparedStatement.setInt(3, visualizarAluno.getMatricula());
 
-            preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                System.out.println("Nome: " +  resultSet.getString("nome"));
+                System.out.println("Numero de telefone: " + resultSet.getString("num_tel"));
+                System.out.println("Matricula: " + resultSet.getInt("matricula"));
+                
+            } else {
+                
+                System.out.println("\n Aluno não encontrado no sistema! \n");
+
+            }
 
         } catch (SQLException e) {
             printSQLException(e);

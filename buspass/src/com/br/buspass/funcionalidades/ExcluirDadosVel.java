@@ -19,6 +19,7 @@ public class ExcluirDadosVel {
 
         ConexaoBD.ExcluirVeiculo(excluir);
 
+        input.close();
     }
-
+    
 }
