@@ -10,7 +10,7 @@ public class atualizaaluno {
         Scanner input = new Scanner(System.in);
 
         System.out
-                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para CPF ou 3 para senha \n");
+                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha ou 5 para Matricula \n");
         int escolha = input.nextInt();
 
         while (escolha <= 5) {

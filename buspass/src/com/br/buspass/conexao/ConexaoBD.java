@@ -177,6 +177,21 @@ public class ConexaoBD {
 
     }
 
+    public static void AtualizarIDVelFuncio(Funcionario funcio_id_vel) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement("ALTER TABLE ADD funcionario (id_vel) VALUES (?);");) {
+            preparedStatement.setInt(5, funcio_id_vel.getId_veiculo());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
     public static void AtualizarSenhaFuncio(Funcionario funcio_senha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
@@ -283,12 +298,11 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_funcio, id_vel) VALUES (?, ?, ?, ?, ?);");) {
+                        .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_funcio) VALUES (?, ?, ?, ?);");) {
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCPF());
             preparedStatement.setString(3, funcionario.getSenha());
             preparedStatement.setInt(4, funcionario.getId_funcio());
-            preparedStatement.setInt(5, funcionario.getId_veiculo());
 
             preparedStatement.executeUpdate();
 
