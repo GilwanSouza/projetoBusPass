@@ -25,12 +25,7 @@ public class CadastroVeiculo {
             Random random = new Random();
             int numero = random.nextInt(10000);
 
-            Veiculo veiculo = new Veiculo();
-            veiculo.setAno(ano);
-            veiculo.setModelo(modelo);
-            veiculo.setChassi(chassi);
-            veiculo.setPlaca(placa);
-            veiculo.setId_vel(numero);
+            Veiculo veiculo = new Veiculo(placa, chassi, modelo, ano, numero);
 
             if (ConexaoBD.cadastroVeiculo(veiculo)) {
                 System.out.println("\n Veiculo cadastrado com sucesso! \n");

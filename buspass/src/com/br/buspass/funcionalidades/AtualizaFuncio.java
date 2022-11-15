@@ -28,7 +28,7 @@ public class AtualizaFuncio {
                 ConexaoBD.AtualizarSenhaFuncio(null);
 
             } else if (escolha == 4) {
-                
+
                 ConexaoBD.AtualizarIDVelFuncio(null);
 
             } else {

@@ -19,9 +19,7 @@ public class CadastroEscolha {
             System.out.println("\nDigite o ID do horario desejado: \n");
             int num_horario = input.nextInt();
 
-            Escolha hr_viagem = new Escolha();
-            hr_viagem.setMatricula(mat);
-            hr_viagem.setNum_horario(num_horario);
+            Escolha hr_viagem = new Escolha(mat, num_horario);
 
             if (ConexaoBD.EscolhaHorario(hr_viagem)) {
                 System.out.println("\n Horario escolhido com sucesso! \n");

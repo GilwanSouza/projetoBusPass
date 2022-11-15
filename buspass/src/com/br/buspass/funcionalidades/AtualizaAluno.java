@@ -11,7 +11,8 @@ public class AtualizaAluno {
         Scanner input = new Scanner(System.in);
 
         System.out
-                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha, 5 para Matricula ou 6 para voltar ao menu \n");
+                .println(
+                        "\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha, 5 para Matricula ou 6 para voltar ao menu \n");
         int escolha = input.nextInt();
 
         while (escolha <= 5) {
@@ -43,7 +44,7 @@ public class AtualizaAluno {
             } else {
 
                 System.out.println("\n Infome algum valor valido \n");
-                
+
             }
 
         }

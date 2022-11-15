@@ -54,7 +54,7 @@ public class MenuFuncionario {
                     CadastroComprovante.main(args);
                     break;
             }
-            
+
         } while (entrada != 0);
 
         inputFuncio.close();

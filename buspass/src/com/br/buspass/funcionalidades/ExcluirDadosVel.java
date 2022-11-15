@@ -9,7 +9,7 @@ public class ExcluirDadosVel {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        
+
         System.out.println("\n Digite o ID do veiculo: \n");
         int entrada = input.nextInt();
 
@@ -21,5 +21,5 @@ public class ExcluirDadosVel {
 
         input.close();
     }
-    
+
 }

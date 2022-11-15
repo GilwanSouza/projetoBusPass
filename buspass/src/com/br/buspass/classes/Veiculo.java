@@ -16,6 +16,18 @@ public class Veiculo {
     private int id_vel_novo;
     private String motivo;
 
+    public Veiculo() {
+
+    }
+
+    public Veiculo(String placa, String chassi, String modelo, int ano, int id_vel) {
+        this.placa = placa;
+        this.chassi = chassi;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.id_vel = id_vel;
+    }
+
     public String getMotivo() {
         return motivo;
     }
@@ -78,17 +90,6 @@ public class Veiculo {
 
     public void setAno(int ano) {
         this.ano = ano;
-    }
-
-    @Override
-    public String toString() {
-        return 
-        "Veiculo [placa = "    + placa    +
-        ", chassi = "          + chassi   +
-        ", modelo = "          + modelo   +
-        ", ano = "             + ano      +
-        ", id_vel = "          + id_vel   +
-        "]";
     }
 
     public void setAno(String ano) {

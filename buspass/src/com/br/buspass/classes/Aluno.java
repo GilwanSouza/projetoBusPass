@@ -1,13 +1,25 @@
 package com.br.buspass.classes;
 
 public class Aluno {
-    
+
     private String Nome;
     private String Numero;
     private String Cpf;
     private String Senha;
     private int Matricula;
-    
+
+    public Aluno() {
+
+    }
+
+    public Aluno(String nome, String numero, String cpf, String senha, int matricula) {
+        Nome = nome;
+        Numero = numero;
+        Cpf = cpf;
+        Senha = senha;
+        Matricula = matricula;
+    }
+
     public String getNome() {
         return Nome;
     }
@@ -35,7 +47,7 @@ public class Aluno {
     public String getSenha() {
         return Senha;
     }
-    
+
     public void setSenha(String senha) {
         Senha = senha;
     }
@@ -48,14 +60,4 @@ public class Aluno {
         return Matricula = matricula;
     }
 
-    @Override
-    public String toString() {
-        return "Aluno"       +
-        "\n Nome = "            + Nome       + 
-        "\n Número = "          + Numero     + 
-        "\n CPF = "             + Cpf        + 
-        "\n Senha = "           + Senha      + 
-        "\n Matrícula = "       + Matricula  +   
-        "\n";
-    }
 }

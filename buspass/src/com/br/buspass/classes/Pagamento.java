@@ -6,6 +6,16 @@ public class Pagamento {
     private int mat_pagador;
     private String dt_pago;
 
+    public Pagamento() {
+
+    }
+
+    public Pagamento(String mes, int mat_pagador, String dt_pago) {
+        this.mes = mes;
+        this.mat_pagador = mat_pagador;
+        this.dt_pago = dt_pago;
+    }
+
     public String getMes() {
         return mes;
     }

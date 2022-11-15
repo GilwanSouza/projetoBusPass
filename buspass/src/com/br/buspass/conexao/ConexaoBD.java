@@ -17,12 +17,12 @@ import com.br.buspass.compra.Escolha;
 
 public class ConexaoBD {
 
-/*
-    private final static String url = "jdbc:postgresql://localhost:5432/buspass";
-    private final static String user = "postgres";
-    private final static String password = "admin";
-    private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
-*/
+    /*
+     * private final static String url = "jdbc:postgresql://localhost:5432/buspass";
+     * private final static String user = "postgres";
+     * private final static String password = "admin";
+     * private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
+     */
     private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
     private final static String password = "admin";
@@ -37,7 +37,7 @@ public class ConexaoBD {
             preparedStatement.setString(1, selecionar_veiculo.getMotivo());
             preparedStatement.setInt(2, selecionar_veiculo.getId_vel_antigo());
             preparedStatement.setInt(3, selecionar_veiculo.getId_vel_novo());
-            
+
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -96,12 +96,12 @@ public class ConexaoBD {
 
             if (resultSet.next()) {
 
-                System.out.println("Nome: " +  resultSet.getString("nome"));
+                System.out.println("Nome: " + resultSet.getString("nome"));
                 System.out.println("Numero de telefone: " + resultSet.getString("num_tel"));
                 System.out.println("Matricula: " + resultSet.getInt("matricula"));
-                
+
             } else {
-                
+
                 System.out.println("\n Aluno não encontrado no sistema! \n");
 
             }
@@ -111,7 +111,7 @@ public class ConexaoBD {
         }
 
     }
-    
+
     public static void ExcluirVeiculo(Veiculo vel) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
@@ -126,7 +126,7 @@ public class ConexaoBD {
         }
 
     }
-    
+
     public static void AtualizarNomeAluno(Aluno aluno_nome) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
@@ -356,7 +356,8 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("INSERT INTO funcionario (nome, cpf, senha, id_funcio) VALUES (?, ?, ?, ?);");) {
+                        .prepareStatement(
+                                "INSERT INTO funcionario (nome, cpf, senha, id_funcio) VALUES (?, ?, ?, ?);");) {
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCPF());
             preparedStatement.setString(3, funcionario.getSenha());

@@ -1,7 +1,7 @@
 package com.br.buspass.compra;
 
 public class Dinheiro implements FormaDePagamento {
-    
+
     private double valor = 0.0;
 
     public Dinheiro(double valor) {
@@ -10,7 +10,7 @@ public class Dinheiro implements FormaDePagamento {
 
     @Override
     public boolean realizarPagamento(double valorPagamento) {
-        if(this.valor >= valorPagamento){
+        if (this.valor >= valorPagamento) {
             this.valor = this.valor - valorPagamento;
             return true;
         } else {

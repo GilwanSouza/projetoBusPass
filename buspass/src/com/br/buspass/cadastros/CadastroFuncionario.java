@@ -31,12 +31,7 @@ public class CadastroFuncionario {
 
             int id_funcio = random.nextInt(10000);
 
-            Funcionario funcionario = new Funcionario();
-            funcionario.setNome(Nome);
-            funcionario.setCPF(CPF);
-            funcionario.setSenha(Senha);
-            funcionario.setId_funcio(id_funcio);
-            funcionario.setId_veiculo(id_veiculo);
+            Funcionario funcionario = new Funcionario(Nome, CPF, Senha, id_funcio, id_veiculo);
 
             if (ConexaoBD.cadastroFuncionario(funcionario)) {
                 System.out.println("\n Funcionario cadastrado com sucesso! \n");

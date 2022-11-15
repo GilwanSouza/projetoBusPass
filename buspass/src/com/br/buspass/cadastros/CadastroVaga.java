@@ -21,10 +21,8 @@ public class CadastroVaga {
         
         entrada.close();
 
-        VagaVeiculo vagas = new VagaVeiculo(); 
-        vagas.setVaga(quantidade);
-        vagas.setId_Search(id_Search);
-
+        VagaVeiculo vagas = new VagaVeiculo(quantidade, id_Search); 
+        
         if (ConexaoBD.cadastroVaga(vagas)) {
             System.out.println("\n Vagas cadastrado com sucesso! \n");
         } else {

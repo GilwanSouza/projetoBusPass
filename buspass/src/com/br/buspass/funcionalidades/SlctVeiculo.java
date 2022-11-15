@@ -24,7 +24,7 @@ public class SlctVeiculo {
         ver_vel.setId_vel_novo(vel_novo);
 
         ConexaoBD.VerVeiculo(ver_vel);
-        
+
         input.close();
     }
 }

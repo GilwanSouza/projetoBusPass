@@ -11,6 +11,16 @@ public class Horario {
     private LocalDate dataViagem;
     private int idViagem;
 
+    public Horario() {
+    }
+
+    public Horario(String hrIda, String hrVolta, LocalDate dataViagem, int idViagem) {
+        this.hrIda = hrIda;
+        this.hrVolta = hrVolta;
+        this.dataViagem = dataViagem;
+        this.idViagem = idViagem;
+    }
+
     public String getHrIda() {
         return hrIda;
     }
@@ -41,18 +51,6 @@ public class Horario {
 
     public void setNumero(int idViagem) {
         this.idViagem = idViagem;
-    }
-
-    public Horario(String hrIda2, String hrVolta2, LocalDate dataViagem2, int idViagem2, String viagem) {
-    }
-
-    public Horario() {
-    }
-
-    @Override
-    public String toString() {
-        return 
-        "Horarios de viagens cadastrados com sucesso!!!";
     }
 
 }

@@ -1,9 +1,18 @@
 package com.br.buspass.classes;
 
 public class VagaVeiculo {
-    
+
     private int vaga;
     private int id_Search;
+
+    public VagaVeiculo() {
+
+    }
+
+    public VagaVeiculo(int vaga, int id_Search) {
+        this.vaga = vaga;
+        this.id_Search = id_Search;
+    }
 
     public int getId_Search() {
         return id_Search;
@@ -24,11 +33,4 @@ public class VagaVeiculo {
     public void setVaga(VagaVeiculo vaga2) {
     }
 
-    @Override
-    public String toString() {
-        return 
-        "VagaVeiculo [vaga="      + vaga       +
-        ", id_Search="            + id_Search  +
-        "]";
-    }
 }

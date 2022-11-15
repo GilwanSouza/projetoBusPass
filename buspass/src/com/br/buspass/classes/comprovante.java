@@ -1,7 +1,15 @@
 package com.br.buspass.classes;
 
 public class comprovante {
-    
+
+    public comprovante() {
+
+    }
+
+    public comprovante(String comprovante) {
+        Comprovante = comprovante;
+    }
+
     private String Comprovante;
 
     public String getComprovante() {
@@ -12,9 +20,4 @@ public class comprovante {
         Comprovante = comprovante;
     }
 
-    @Override
-    public String toString() {
-        return "Comprovante" +
-        "\nComprovante = " + Comprovante + "\n";
-    } 
 }

@@ -19,10 +19,7 @@ public class CadastroComprovante {
         System.out.println("\n Digite o dia que o pagamento foi feito: \n");
         String dt_pago = input.nextLine();
 
-        Pagamento pagou = new Pagamento();
-        pagou.setMes(mes);
-        pagou.setMat_pagador(mat_pagador);
-        pagou.setDt_pago(dt_pago);
+        Pagamento pagou = new Pagamento(mes, mat_pagador, dt_pago);
 
         if (ConexaoBD.PagamentoAluno(pagou)) {
             System.out.println("\n Pagamento do aluno cadastrado com sucesso! \n");

@@ -1,7 +1,7 @@
 package com.br.buspass.compra;
 
 public class Cartao implements FormaDePagamento {
-    
+
     private double valor = 0.0;
     private String numero = null;
     private String senha = null;
@@ -13,9 +13,9 @@ public class Cartao implements FormaDePagamento {
         this.senha = senha;
     }
 
-    public void isCartao(String numero, String senha){
-        if(this.numero != null && this.senha != null){
-            if(this.numero.equals(numero)&& this.senha.equals(senha)){
+    public void isCartao(String numero, String senha) {
+        if (this.numero != null && this.senha != null) {
+            if (this.numero.equals(numero) && this.senha.equals(senha)) {
                 this.statusCartao = true;
             }
         }

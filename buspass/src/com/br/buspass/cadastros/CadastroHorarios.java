@@ -30,11 +30,9 @@ public class CadastroHorarios {
 
             int numero = random.nextInt(10000);
             
-            Horario horario = new Horario();
-            horario.setDataViagem(LocalDate.parse(dtViagem, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-            horario.setHrIda(hrIda);
-            horario.setHrVolta(hrVolta);
-            horario.setNumero(numero);
+            Horario horario = new Horario(hrIda, hrVolta,
+                LocalDate.parse(dtViagem, DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                numero);
  
             if (ConexaoBD.cadastroHorario(horario)) {
                 System.out.println("\n Horarios cadastrado com sucesso! \n");

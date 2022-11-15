@@ -50,8 +50,8 @@ public class MenuPrincipal {
                     if (logadoAluno != null) {
                         MenuAluno.main(args);
                     } else {
-                        System.out.println("\n Login não existe \n");                      
-                    }                                       
+                        System.out.println("\n Login não existe \n");
+                    }
 
                 case 2:
                     Funcionario funcioLogado = null;
@@ -75,7 +75,7 @@ public class MenuPrincipal {
                     if (funcioLogado != null) {
                         MenuFuncionario.main(args);
                     } else {
-                        System.out.println("\n Login não existe \n");                      
+                        System.out.println("\n Login não existe \n");
                     }
 
             }
@@ -145,12 +145,11 @@ public class MenuPrincipal {
                             System.out.println("\n O funcionario não foi cadasdrado! \n");
                         }
 
-                    } catch(Exception exception){
+                    } catch (Exception exception) {
                         System.out.println(exception.getMessage());
                     }
                     break;
 
-                    
             }
         }
         inputValor.close();

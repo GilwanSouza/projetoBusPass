@@ -7,6 +7,18 @@ public class Funcionario {
     private String Senha;
     private int id_funcio;
 
+    public Funcionario() {
+
+    }
+
+    public Funcionario(String nome, String cPF, String senha, int id_funcio, int id_veiculo) {
+        Nome = nome;
+        CPF = cPF;
+        Senha = senha;
+        this.id_funcio = id_funcio;
+        this.id_veiculo = id_veiculo;
+    }
+
     public int getId_funcio() {
         return id_funcio;
     }
@@ -47,16 +59,6 @@ public class Funcionario {
 
     public void setSenha(String senha) {
         Senha = senha;
-    }
-
-    @Override
-    public String toString() {
-        return "Funcionario" +
-                "\nNome = " + Nome +
-                "\nCPF = " + CPF +
-                "\nSenha = " + Senha +
-                "\nPlaca = " + id_veiculo +
-                "\n";
     }
 
     public void setCPF(int login) {
