@@ -12,6 +12,33 @@ public class Veiculo {
     private String modelo;
     private int ano;
     private int id_vel;
+    private int id_vel_antigo;
+    private int id_vel_novo;
+    private String motivo;
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public int getId_vel_antigo() {
+        return id_vel_antigo;
+    }
+
+    public void setId_vel_antigo(int id_vel_antigo) {
+        this.id_vel_antigo = id_vel_antigo;
+    }
+
+    public int getId_vel_novo() {
+        return id_vel_novo;
+    }
+
+    public void setId_vel_novo(int id_vel_novo) {
+        this.id_vel_novo = id_vel_novo;
+    }
 
     public int getId_vel() {
         return id_vel;

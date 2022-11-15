@@ -1,6 +1,5 @@
 package com.br.buspass;
 
-import java.lang.Runtime.Version;
 import java.util.Scanner;
 
 import com.br.buspass.testes.TestaComprovante;

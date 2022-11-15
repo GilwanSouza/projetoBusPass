@@ -17,10 +17,50 @@ import com.br.buspass.compra.Escolha;
 
 public class ConexaoBD {
 
+/*
     private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
     private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
+*/
+    private final static String url = "jdbc:postgresql://localhost:5432/buspass";
+    private final static String user = "postgres";
+    private final static String password = "5836";
+    private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
+
+    public static void SelecionarVeiculo(Veiculo selecionar_veiculo) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement(
+                                "INSERT INTO troca_veiculo (motivo, id_vel_antigo, id_vel_novo) VALUES (?,?,?);");) {
+            preparedStatement.setString(1, selecionar_veiculo.getMotivo());
+            preparedStatement.setInt(2, selecionar_veiculo.getId_vel_antigo());
+            preparedStatement.setInt(3, selecionar_veiculo.getId_vel_novo());
+            
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
+    public static void VerVeiculo(Veiculo ver_veiculo) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+
+                PreparedStatement preparedStatement = connection
+                        .prepareStatement(
+                                "SELECT FROM veiculo WHERE (placa) = (?);");) {
+            preparedStatement.setString(1, ver_veiculo.getPlaca());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
 
     public static void PagamentoAluno(Pagamento pago) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
