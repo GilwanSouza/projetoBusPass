@@ -6,7 +6,6 @@ import java.util.Scanner;
 import com.br.buspass.classes.Aluno;
 import com.br.buspass.classes.Funcionario;
 import com.br.buspass.conexao.ConexaoBD;
-import com.br.buspass.logins.LoginAluno;
 
 public class MenuPrincipal {
 
@@ -26,8 +25,9 @@ public class MenuPrincipal {
                     "\n Deseja logar como aluno ou funcionario? \n Digite 1 para logar como aluno e 2 para funcionario");
             login = input.nextInt();
 
-            switch (usuario) {
+            switch (login) {
                 case 1:
+
                     Aluno logadoAluno = null;
                     try (Scanner entradScanner = new Scanner(System.in);
                         Scanner entTexto = new Scanner(System.in)) {
@@ -42,6 +42,10 @@ public class MenuPrincipal {
                         log_aluno.setSenha(senha);
 
                         logadoAluno = ConexaoBD.LogarAluno(log_aluno);
+
+                        entTexto.close();
+                        entradScanner.close();
+
                     } catch (Exception exception) {
                         System.err.println(exception.getMessage());
                     }
@@ -50,9 +54,8 @@ public class MenuPrincipal {
                         MenuAluno.main(args);
                     } else {
                         System.out.println("\n Login não existe \n");                      
-                    }                     
+                    }                                       
 
-                    break;
                 case 2:
                     Funcionario funcioLogado = null;
                     try (Scanner entScanner = new Scanner(System.in)) {
@@ -63,10 +66,13 @@ public class MenuPrincipal {
                         String senha = entScanner.nextLine();
 
                         Funcionario log_fun = new Funcionario();
-                        log_fun.setCPF(login);
+                        log_fun.setCPF(login2);
                         log_fun.setSenha(senha);
 
                         funcioLogado = ConexaoBD.LoginFunc(log_fun);
+
+                        entScanner.close();
+
                     } catch (Exception exception) {
                         System.err.println(exception.getMessage());
                     }
@@ -109,6 +115,8 @@ public class MenuPrincipal {
                         aluno.setSenha(Senha);
                         aluno.setMatricula(Matricula);
 
+                        entrada.close();
+
                         if (ConexaoBD.cadastroAluno(aluno)) {
                             System.out.println("\n Aluno cadastrado com sucesso! \n");
                         } else {
@@ -137,11 +145,14 @@ public class MenuPrincipal {
                         funcionario.setCPF(CPF);
                         funcionario.setSenha(Senha);
 
+                        entrada.close();
+
                         if (ConexaoBD.cadastroFuncionario(funcionario)) {
                             System.out.println("\n Funcionario cadastrado com sucesso! \n");
                         } else {
                             System.out.println("\n O funcionario não foi cadasdrado! \n");
                         }
+
                     } catch(Exception exception){
                         System.out.println(exception.getMessage());
                     }
@@ -150,6 +161,7 @@ public class MenuPrincipal {
                     
             }
         }
+        input.close();
 
     }
 

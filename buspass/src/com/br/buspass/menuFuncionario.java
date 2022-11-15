@@ -12,8 +12,10 @@ import com.br.buspass.funcionalidades.VisuDadosAluno;
 public class MenuFuncionario {
     
     public static void main(String[] args) throws Exception {
-        Scanner input = new Scanner(System.in);
+        Scanner inputFuncio = new Scanner(System.in);
         
+        int entrada = 0;
+
         System.out.println("\n Olá, bem vindo(a), o que deseja fazer? \n");
         System.out.println("Para cadastro de vagas digite 1");
         System.out.println("Para cadastro de veículo digite 2");
@@ -21,7 +23,8 @@ public class MenuFuncionario {
         System.out.println("Visualizar dados de um passageiro digite 4");
         System.out.println("Atualizar dados própios digite 5");
         System.out.println("Cadastrar se o aluno pagou o mês digite 6");
-        int entrada = input.nextInt();
+        
+        entrada = inputFuncio.nextInt();
 
         switch (entrada) {
             case 1:
@@ -48,6 +51,7 @@ public class MenuFuncionario {
                 CadastroComprovante.main(args);
                 break;
         }
+        inputFuncio.close();
 
     }
 }
