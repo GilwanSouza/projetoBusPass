@@ -144,6 +144,7 @@ public class MenuPrincipal {
                         funcionario.setNome(Nome);
                         funcionario.setCPF(CPF);
                         funcionario.setSenha(Senha);
+                        funcionario.setId_funcio(id_funcio);
 
                         entrada.close();
 
