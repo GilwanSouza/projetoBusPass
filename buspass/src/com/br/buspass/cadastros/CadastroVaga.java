@@ -18,8 +18,6 @@ public class CadastroVaga {
 
         System.out.println("\n Informe qual o ID do seu veiculo: \n");
         int id_Search = entrada.nextInt();
-        
-        entrada.close();
 
         VagaVeiculo vagas = new VagaVeiculo(quantidade, id_Search); 
         

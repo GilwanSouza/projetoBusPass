@@ -26,6 +26,5 @@ public class CadastroComprovante {
         } else {
             System.err.println("\n O pagamento do aluno não foi cadasdrado! \n");
         }
-        input.close();
     }
 }

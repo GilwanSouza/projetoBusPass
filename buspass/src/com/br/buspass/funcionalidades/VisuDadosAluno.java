@@ -19,7 +19,6 @@ public class VisuDadosAluno {
 
         ConexaoBD.VisualizarDados(visualisar);
 
-        input.close();
     }
 
 }
