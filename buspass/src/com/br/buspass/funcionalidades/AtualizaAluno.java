@@ -17,32 +17,38 @@ public class AtualizaAluno {
 
         while (escolha <= 5) {
 
-            if (escolha == 1) {
-
+            switch (escolha) {
+                case 1:
                 ConexaoBD.AtualizarNomeAluno(null);
 
-            } else if (escolha == 2) {
-
+                    break;
+                    
+                case 2:
                 ConexaoBD.AtualizarNumeroAluno(null);
 
-            } else if (escolha == 3) {
+                    break;
 
+                case 3:
                 ConexaoBD.AtualizarCPFAluno(null);
 
-            } else if (escolha == 4) {
+                    break;
 
+                case 4:
                 ConexaoBD.AtualizarSenhaAluno(null);
 
-            } else if (escolha == 5) {
+                    break;
 
+                case 5:
                 ConexaoBD.AtualizarMatriculaAluno(null);
 
-            } else if (escolha == 6) {
+                    break;
 
+                case 6:
                 MenuAluno.main(args);
 
-            } else {
+                    break;
 
+                case 7:
                 System.out.println("\n Infome algum valor valido \n");
 
             }

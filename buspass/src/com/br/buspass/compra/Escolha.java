@@ -9,9 +9,9 @@ public class Escolha {
 
     }
 
-    public Escolha(int num_horario, int matricula) {
-        this.num_horario = num_horario;
+    public Escolha(int matricula, int num_horario) {
         this.matricula = matricula;
+        this.num_horario = num_horario;  
     }
 
     public int getNum_horario() {

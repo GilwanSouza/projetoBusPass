@@ -17,7 +17,11 @@ public class ExcluirDadosVel {
 
         excluir.setId_vel(entrada);
 
-        ConexaoBD.ExcluirVeiculo(excluir);
+        if (ConexaoBD.ExcluirVeiculo(excluir)) {
+            System.out.println("\n Dados do veiculo excluido com sucesso! \n");
+        } else {
+            System.err.println("\n O veículo não foi excluido do sistema! \n");
+        }
 
         input.close();
     }

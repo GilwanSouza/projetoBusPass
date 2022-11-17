@@ -25,7 +25,7 @@ public class ConexaoBD {
      */
     private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
-    private final static String password = "5836";
+    private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
 
     public static void SelecionarVeiculo(Veiculo selecionar_veiculo) {
@@ -51,10 +51,24 @@ public class ConexaoBD {
 
                 PreparedStatement preparedStatement = connection
                         .prepareStatement(
-                                "SELECT FROM veiculo WHERE (placa) = (?);");) {
+                                "SELECT ano, modelo, chassi, placa, id_vel FROM veiculo WHERE (placa) = (?);");) {
             preparedStatement.setString(1, ver_veiculo.getPlaca());
 
-            preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                System.out.println("Ano: " + resultSet.getString("ano"));
+                System.out.println("Modelo: " + resultSet.getString("modelo"));
+                System.out.println("Chassi: " + resultSet.getString("chassi"));
+                System.out.println("Placa: " + resultSet.getString("placa"));
+                System.out.println("Id do veiculo: " + resultSet.getString("id_vel"));
+
+            } else {
+
+                System.out.println("\n Veiculo não encontrado no sistema! \n");
+
+            }
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -87,10 +101,8 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("SELECT FROM aluno (nome, num_tel, matricula) VALUES (?, ?, ?);");) {
-            preparedStatement.setString(1, visualizarAluno.getNome());
-            preparedStatement.setString(2, visualizarAluno.getNumero());
-            preparedStatement.setInt(3, visualizarAluno.getMatricula());
+                        .prepareStatement("SELECT nome, num_tel FROM aluno WHERE matricula = (?);");) {
+            preparedStatement.setInt(1, visualizarAluno.getMatricula());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -98,7 +110,6 @@ public class ConexaoBD {
 
                 System.out.println("Nome: " + resultSet.getString("nome"));
                 System.out.println("Numero de telefone: " + resultSet.getString("num_tel"));
-                System.out.println("Matricula: " + resultSet.getInt("matricula"));
 
             } else {
 
@@ -112,33 +123,41 @@ public class ConexaoBD {
 
     }
 
-    public static void ExcluirVeiculo(Veiculo vel) {
+    public static boolean ExcluirVeiculo(Veiculo vel) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("DELETE * FROM veiculo WHERE (id_vel) = (?);");) {
-            preparedStatement.setInt(5, vel.getId_vel());
+                        .prepareStatement("DELETE FROM veiculo WHERE (id_vel) = (?);");) {
+            preparedStatement.setInt(1, vel.getId_vel());
 
             preparedStatement.executeUpdate();
+
+            return true;
 
         } catch (SQLException e) {
             printSQLException(e);
         }
 
+        return false;
+
     }
 
-    public static void AtualizarNomeAluno(Aluno aluno_nome) {
+    public static boolean AtualizarNomeAluno(Aluno aluno_nome) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD aluno (nome) VALUES (?);");) {
+                        .prepareStatement("UPDATE aluno SET nome (?) WHERE nome = (?);");) {
             preparedStatement.setString(1, aluno_nome.getNome());
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+
+        return false;
 
     }
 
@@ -146,7 +165,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD aluno (num_tel) VALUES (?);");) {
+                        .prepareStatement("UPDATE aluno SET num_tel (?) WHERE num_tel = (?);");) {
             preparedStatement.setString(2, aluno_numero.getNome());
 
             preparedStatement.executeUpdate();
@@ -161,7 +180,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD aluno (cpf) VALUES (?);");) {
+                        .prepareStatement("UPDATE aluno SET cpf (?) WHERE cpf = (?);");) {
             preparedStatement.setString(3, aluno_cpf.getNome());
 
             preparedStatement.executeUpdate();
@@ -176,7 +195,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD aluno (senha) VALUES (?);");) {
+                        .prepareStatement("UPDATE aluno SET senha (?) WHERE senha = (?);");) {
             preparedStatement.setString(4, aluno_senha.getNome());
 
             preparedStatement.executeUpdate();
@@ -191,7 +210,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD aluno (matricula) VALUES (?);");) {
+                        .prepareStatement("UPDATE aluno SET matricula (?) WHERE matricula = (?);");) {
             preparedStatement.setString(5, aluno_mat.getNome());
 
             preparedStatement.executeUpdate();
@@ -206,7 +225,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD funcionario (nome) VALUES (?);");) {
+                        .prepareStatement("UPDATE funcionario SET nome (?) WHERE nome = (?);");) {
             preparedStatement.setString(1, funcio_nome.getNome());
 
             preparedStatement.executeUpdate();
@@ -221,7 +240,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD funcionario (cpf) VALUES (?);");) {
+                        .prepareStatement("UPDATE funcionario SET cpf (?) WHERE cpf = (?);");) {
             preparedStatement.setString(2, funcio_cfp.getCPF());
 
             preparedStatement.executeUpdate();
@@ -236,7 +255,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD funcionario (id_vel) VALUES (?);");) {
+                        .prepareStatement("UPDATE funcionario SET id_vel (?) WHERE id_vel = (?);");) {
             preparedStatement.setInt(5, funcio_id_vel.getId_veiculo());
 
             preparedStatement.executeUpdate();
@@ -251,7 +270,7 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("ALTER TABLE ADD funcionario (senha) VALUES (?);");) {
+                        .prepareStatement("UPDATE funcionario SET senha (?) WHERE senha = (?);");) {
             preparedStatement.setString(3, funcio_senha.getSenha());
 
             preparedStatement.executeUpdate();
@@ -267,9 +286,9 @@ public class ConexaoBD {
 
                 PreparedStatement preparedStatement = connection
                         .prepareStatement(
-                                "INSERT INTO horario_aluno (matricula_aluno, numero_viagem) VALUES (?, ?);");) {
-            preparedStatement.setInt(1, escolha.getMatricula());
-            preparedStatement.setInt(2, escolha.getNum_horario());
+                                "INSERT INTO horario_aluno (numero_viagem, matricula_aluno) VALUES (?, ?);");) {
+            preparedStatement.setInt(1, escolha.getNum_horario());
+            preparedStatement.setInt(2, escolha.getMatricula());
 
             preparedStatement.executeUpdate();
 

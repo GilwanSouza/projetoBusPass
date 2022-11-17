@@ -2,14 +2,13 @@ package com.br.buspass.classes;
 
 public class Aluno {
 
-    private String Nome;
-    private String Numero;
-    private String Cpf;
-    private String Senha;
-    private int Matricula;
+    private String Nome = "";
+    private String Numero = "";
+    private String Cpf = "";
+    private String Senha = "";
+    private int Matricula = 0;
 
     public Aluno() {
-
     }
 
     public Aluno(String nome, String numero, String cpf, String senha, int matricula) {
