@@ -9,12 +9,13 @@ public class LoginAluno {
 
     public static void main(String[] args) {
 
-        try (Scanner input = new Scanner(System.in)) {
+        try (Scanner input = new Scanner(System.in);
+                Scanner inputTexto = new Scanner(System.in);) {
             System.out.println("Login com matricula: ");
             int matricula = input.nextInt();
 
             System.out.println("Senha: ");
-            String senha = input.nextLine();
+            String senha = inputTexto.nextLine();
 
             Aluno log_aluno = new Aluno();
             log_aluno.setMatricula(matricula);
