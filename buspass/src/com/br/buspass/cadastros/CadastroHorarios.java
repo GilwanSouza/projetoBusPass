@@ -5,12 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.classes.Horario;
 import com.br.buspass.conexao.ConexaoBD;
 
 public class CadastroHorarios {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Horario Viagem = new Horario();
         Viagem.getNumero();
@@ -40,5 +41,8 @@ public class CadastroHorarios {
                 System.err.println("\nO horário não foi cadasdrados! \n");
             }
         }
+
+        MenuFuncionario.main(args);
+
     }
 }

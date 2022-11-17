@@ -17,19 +17,24 @@ public class MenuAluno {
         System.out.println("\n(0) Caso deseje cancelar a operação: \n");
         entrada = inputAluno.nextInt();
 
-        switch (entrada) {
-            case 1:
-                CadastroEscolha.main(args);
-                break;
-        
-            case 2:
-                AtualizaAluno.main(args);
-                break;
+        do {
+           
+            switch (entrada) {
+                case 1:
+                    CadastroEscolha.main(args);
+                    break;
+            
+                case 2:
+                    AtualizaAluno.main(args);
+                    break;
+    
+                case 0:
+                    MenuAluno.main(args);
+    
+            }
+            inputAluno.close();
+            MenuAluno.main(args);
 
-            case 0:
-                MenuAluno.main(args);
-
-        }
-        inputAluno.close();
+        } while (entrada != 0);
     }
 }

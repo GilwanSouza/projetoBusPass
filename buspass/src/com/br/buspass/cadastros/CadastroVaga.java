@@ -6,6 +6,7 @@ package com.br.buspass.cadastros;
 
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.classes.VagaVeiculo;
 import com.br.buspass.conexao.ConexaoBD;
 
@@ -26,6 +27,9 @@ public class CadastroVaga {
         } else {
             System.err.println("\nAs Vagas não foram cadasdradas! \n");
         }
+
+        MenuFuncionario.main(args);
+
         entrada.close();
     }
 }

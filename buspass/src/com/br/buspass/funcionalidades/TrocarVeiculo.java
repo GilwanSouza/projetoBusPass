@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.br.buspass.cadastros.CadastroVeiculo;
 
 public class TrocarVeiculo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("\n(1) Para escolher um veículo já cadastrado:\n(2) Para cadastrar um novo veículo:\n");

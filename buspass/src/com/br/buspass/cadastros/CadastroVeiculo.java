@@ -3,11 +3,12 @@ package com.br.buspass.cadastros;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.classes.Veiculo;
 import com.br.buspass.conexao.ConexaoBD;
 
 public class CadastroVeiculo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try (Scanner input = new Scanner(System.in)) {
 
             System.out.println("\nQual a placa do veículo? \n");
@@ -32,6 +33,9 @@ public class CadastroVeiculo {
             } else {
                 System.err.println("\nO veículo não foi cadasdrado! \n");
             }
+
+            MenuFuncionario.main(args);
+
         }
     }
 }

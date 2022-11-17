@@ -2,12 +2,13 @@ package com.br.buspass.cadastros;
 
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.classes.Pagamento;
 import com.br.buspass.conexao.ConexaoBD;
 
 public class CadastroComprovante {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         String mes;
         int mat_pagador;
@@ -33,5 +34,8 @@ public class CadastroComprovante {
                 System.err.println("\nO pagamento do aluno não foi cadasdrado! \n");
             }
         }
+
+        MenuFuncionario.main(args);
+
     }
 }
