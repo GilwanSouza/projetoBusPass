@@ -18,6 +18,8 @@ public class MenuPrincipal {
         int login = 0;
         int cadastro = 0;
 
+        System.out.println("\n-----Olá, bem vindo(a), o que deseja fazer?----- \n");
+
         System.out.println("\n(1) Caso deseje fazer login: \n(2) Caso deseje fazer seu cadastro:\n");
         usuario = inputValor.nextInt();
 

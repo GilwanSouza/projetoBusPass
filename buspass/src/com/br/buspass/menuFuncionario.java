@@ -59,8 +59,10 @@ public class MenuFuncionario {
                 case 7:
                     CadastroHorarios.main(args);
             }
+
             inputFuncio.close();
 
         } while (entrada != 0);
+        MenuPrincipal.main(args);
     }
 }
