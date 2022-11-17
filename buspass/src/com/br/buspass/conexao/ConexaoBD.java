@@ -25,7 +25,7 @@ public class ConexaoBD {
      */
     private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
-    private final static String password = "5836";
+    private final static String password = "admin";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
 
     public static void SelecionarVeiculo(Veiculo selecionar_veiculo) {
@@ -146,8 +146,9 @@ public class ConexaoBD {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE aluno SET nome (?) WHERE nome = (?);");) {
+                        .prepareStatement("UPDATE aluno SET nome = (?) WHERE matricula = (?);");) {
             preparedStatement.setString(1, aluno_nome.getNome());
+            preparedStatement.setInt(2, aluno_nome.getMatricula());
 
             preparedStatement.executeUpdate();
 
@@ -176,7 +177,7 @@ public class ConexaoBD {
 
     }
 
-    public static void AtualizarCPFAluno(Aluno aluno_cpf) {
+    public static boolean AtualizarCPFAluno(Aluno aluno_cpf) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -185,13 +186,17 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            
+
         } catch (SQLException e) {
             printSQLException(e);
         }
 
+        return false;
+
     }
 
-    public static void AtualizarSenhaAluno(Aluno aluno_senha) {
+    public static boolean AtualizarSenhaAluno(Aluno aluno_senha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -200,13 +205,17 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
 
+        return false;
+
     }
 
-    public static void AtualizarMatriculaAluno(Aluno aluno_mat) {
+    public static boolean AtualizarMatriculaAluno(Aluno aluno_mat) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
@@ -215,9 +224,13 @@ public class ConexaoBD {
 
             preparedStatement.executeUpdate();
 
+            return true;
+
         } catch (SQLException e) {
             printSQLException(e);
         }
+
+        return false;
 
     }
 

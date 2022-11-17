@@ -23,6 +23,5 @@ public class LoginAluno {
 
             ConexaoBD.LogarAluno(log_aluno);
         }
-
     }
 }

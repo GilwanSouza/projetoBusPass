@@ -5,12 +5,11 @@ import java.util.Scanner;
 import com.br.buspass.compra.Escolha;
 import com.br.buspass.conexao.ConexaoBD;
 
-
 public class CadastroEscolha {
     public static void main(String[] args) throws Exception {
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("\nHorários Disponíveis\n");
-            
+
             ConexaoBD.CompraPassagem();
 
             System.out.println("\nDigite sua matrícula: \n");
@@ -26,6 +25,7 @@ public class CadastroEscolha {
             } else {
                 System.err.println("\nO horário não foi cadasdrado! \n");
             }
+            input.close();
         }
     }
 }

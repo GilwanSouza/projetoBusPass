@@ -3,55 +3,114 @@ package com.br.buspass.funcionalidades;
 import java.util.Scanner;
 
 import com.br.buspass.MenuAluno;
+import com.br.buspass.classes.Aluno;
 import com.br.buspass.conexao.ConexaoBD;
 
 public class AtualizaAluno {
 
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
+        Scanner inputTXT = new Scanner(System.in);
 
-        System.out.println("\nO que deseja atualizar?\n(1) Para atualizar o nome:\n(2) Para atualizar o número:\n(3) Para atualizar o CPF:\n(4) Para atualizar a senha:\n(5) Para atualizar a matrícula:\n(6) Para voltar ao menu: \n");
+        System.out.println(
+                "\nO que deseja atualizar?\n(1) Para atualizar o nome:\n(2) Para atualizar o número:\n(3) Para atualizar o CPF:\n(4) Para atualizar a senha:\n(5) Para atualizar a matrícula:\n(6) Para voltar ao menu: \n");
         int escolha = input.nextInt();
 
-        while (escolha <= 5) {
+            if (escolha == 1) {
+                System.out.println("\n Qual o novo nome? \n");
+                String nome_aluno = inputTXT.nextLine();
 
-            switch (escolha) {
-                case 1:
-                ConexaoBD.AtualizarNomeAluno(null);
+                System.out.println("\nQual a matricula? \n");
+                int matricula = input.nextInt();
 
-                    break;
-                    
-                case 2:
-                ConexaoBD.AtualizarNumeroAluno(null);
+                Aluno alunoNome = new Aluno();
+                alunoNome.setNome(nome_aluno);
+                alunoNome.setMatricula(matricula);
+                ConexaoBD.AtualizarNomeAluno(alunoNome);
 
-                    break;
+                if (ConexaoBD.AtualizarNomeAluno(alunoNome)) {
+                    System.out.println("\nAtualização feita com sucesso! \n");
+                } else {
+                    System.err.println("\nA atualização não foi concluida! \n");
+                }
+            } else if (escolha == 2) {
+                System.out.println("\nDigite o novo numero: \n");
+                String num_aluno = inputTXT.nextLine();
 
-                case 3:
+                System.out.println("\nDigite a matricula: \n");
+                int matricula = input.nextInt();
+
+                Aluno alunoNumero = new Aluno();
+                alunoNumero.setNumero(num_aluno);
+                alunoNumero.setMatricula(matricula);
+                ConexaoBD.AtualizarNomeAluno(alunoNumero);
+
+                if (ConexaoBD.AtualizarCPFAluno(alunoNumero)) {
+                    System.out.println("\nAtualização feita com sucesso! \n");
+                } else {
+                    System.err.println("\nA atualização não foi concluida! \n");
+                }
+                
+            } else if (escolha == 3) {
                 ConexaoBD.AtualizarCPFAluno(null);
+                System.out.println("\nDigite o novo CPF: \n");
+                String cpf_aluno = inputTXT.nextLine();
 
-                    break;
+                System.out.println("\nDigite a matricula: \n");
+                int matricula = input.nextInt();
 
-                case 4:
-                ConexaoBD.AtualizarSenhaAluno(null);
+                Aluno alunoCpf = new Aluno();
+                alunoCpf.setCpf(cpf_aluno);
+                alunoCpf.setMatricula(matricula);
+                ConexaoBD.AtualizarNomeAluno(alunoCpf);
 
-                    break;
+                if (ConexaoBD.AtualizarCPFAluno(alunoCpf)) {
+                    System.out.println("\nAtualização feita com sucesso! \n");
+                } else {
+                    System.err.println("\nA atualização não foi concluida! \n");
+                }
+            } else if (escolha == 4) {
+                System.out.println("\nDigite a nova senha: \n");
+                String senha_aluno = inputTXT.nextLine();
 
-                case 5:
-                ConexaoBD.AtualizarMatriculaAluno(null);
+                System.out.println("\nDigite a matricula: \n");
+                int matricula = input.nextInt();
 
-                    break;
+                Aluno alunoSenha = new Aluno();
+                alunoSenha.setSenha(senha_aluno);
+                alunoSenha.setMatricula(matricula);
+                ConexaoBD.AtualizarNomeAluno(alunoSenha);
 
-                case 6:
+                if (ConexaoBD.AtualizarSenhaAluno(alunoSenha)) {
+                    System.out.println("\nAtualização feita com sucesso! \n");
+                } else {
+                    System.err.println("\nA atualização não foi concluida! \n");
+                }
+            } else if (escolha == 5) {
+                System.out.println("\nDigite a nova matricula: \n");
+                int matricula_aluno = inputTXT.nextInt();
+
+                System.out.println("\nDigite a matricula: \n");
+                int matricula = input.nextInt();
+
+                Aluno alunoMatricula = new Aluno();
+                alunoMatricula.setMatricula(matricula_aluno);
+                alunoMatricula.setMatricula(matricula);
+                ConexaoBD.AtualizarNomeAluno(alunoMatricula);
+
+                if (ConexaoBD.AtualizarMatriculaAluno(alunoMatricula)) {
+                    System.out.println("\nAtualização feita com sucesso! \n");
+                } else {
+                    System.err.println("\nA atualização não foi concluida! \n");
+                }
+            } else if (escolha == 6) {
                 MenuAluno.main(args);
-
-                    break;
-
-                case 7:
+            } else if (escolha == 7) {
                 System.out.println("\n Infome algum valor valido \n");
-
+            } else {
+                System.out.println("\n Digite um valor valido: \n");
             }
-
-        }
         input.close();
+        inputTXT.close();
     }
 }
