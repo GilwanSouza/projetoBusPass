@@ -18,7 +18,7 @@ public class AtualizaAluno {
 
         if (escolha == 1) {
 
-            System.out.println("\n Qual o novo nome? \n");
+            System.out.println("\nQual o novo nome? \n");
             String nome_aluno = inputTXT.nextLine();
 
             System.out.println("\nQual a matricula? \n");
@@ -123,11 +123,11 @@ public class AtualizaAluno {
 
         } else if (escolha == 7) {
 
-            System.out.println("\n Infome algum valor valido \n");
+            System.out.println("\nInfome algum valor valído \n");
 
         } else {
 
-            System.out.println("\n Digite um valor valido: \n");
+            System.out.println("\nDigite um valor valído: \n");
 
         }
         input.close();
