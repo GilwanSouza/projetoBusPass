@@ -231,10 +231,12 @@ public class ConexaoBD {
             ResultSet resultset = preparedStatement.executeQuery();
 
             while (resultset.next()) {
+                System.out.println("-------------------");
                 System.out.println(resultset.getInt("numero") + " ");
                 System.out.println(resultset.getString("hr_ida") + " ");
                 System.out.println(resultset.getString("hr_volta") + " ");
                 System.out.println(resultset.getDate("dt_viagem") + " ");
+                System.out.println("-------------------");
             }
 
         } catch (SQLException e) {
