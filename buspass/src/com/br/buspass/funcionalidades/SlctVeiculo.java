@@ -2,11 +2,12 @@ package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.classes.Veiculo;
 import com.br.buspass.conexao.ConexaoBD;
 
 public class SlctVeiculo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
         System.out.println("\nInforme o motivo da troca do veículo:");
@@ -24,6 +25,8 @@ public class SlctVeiculo {
         ver_vel.setId_vel_novo(vel_novo);
 
         ConexaoBD.VerVeiculo(ver_vel);
+
+        MenuFuncionario.main(args);
 
         input.close();
     }

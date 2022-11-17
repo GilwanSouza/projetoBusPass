@@ -2,6 +2,7 @@ package com.br.buspass.funcionalidades;
 
 import java.util.Scanner;
 
+import com.br.buspass.MenuFuncionario;
 import com.br.buspass.cadastros.CadastroVeiculo;
 
 public class TrocarVeiculo {
@@ -19,6 +20,10 @@ public class TrocarVeiculo {
             case 2:
                 CadastroVeiculo.main(args);
         }
+
         entrada.close();
+        MenuFuncionario.main(args);
+
+        
     }
 }

@@ -7,6 +7,7 @@ import com.br.buspass.cadastros.CadastroHorarios;
 import com.br.buspass.cadastros.CadastroVaga;
 import com.br.buspass.cadastros.CadastroVeiculo;
 import com.br.buspass.funcionalidades.ExcluirDadosVel;
+import com.br.buspass.funcionalidades.TrocarVeiculo;
 import com.br.buspass.funcionalidades.VerDadosVel;
 import com.br.buspass.funcionalidades.VisuDadosAluno;
 
@@ -27,6 +28,7 @@ public class MenuFuncionario {
             System.out.println("(5) Para confirmar o pagamento do aluno:");
             System.out.println("(6) Para visualizar os veiculos cadasdrados:");
             System.out.println("(7) Para cadastrar horarios:");
+            System.out.println("(8) Para trocar de veiculo:");
             System.out.println("\n(0) Caso deseje cancelar a operação: \n");
 
             entrada = inputFuncio.nextInt();
@@ -58,6 +60,10 @@ public class MenuFuncionario {
 
                 case 7:
                     CadastroHorarios.main(args);
+                    break;
+
+                case 8:
+                    TrocarVeiculo.main(args);
 
             }
 
