@@ -25,7 +25,7 @@ public class ConexaoBD {
      */
     private final static String url = "jdbc:postgresql://localhost:5432/buspass";
     private final static String user = "postgres";
-    private final static String password = "admin";
+    private final static String password = "5836";
     private static final String QUERY = "SELECT * FROM aluno, horario, veiculo";
 
     public static void SelecionarVeiculo(Veiculo selecionar_veiculo) {

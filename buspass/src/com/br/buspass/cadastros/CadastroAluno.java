@@ -27,9 +27,9 @@ public class CadastroAluno {
             Aluno aluno = new Aluno(Nome, Numero, Cpf, Senha, Matricula);
    
             if (ConexaoBD.cadastroAluno(aluno)) {
-                System.out.println("\n Aluno cadastrado com sucesso! \n");
+                System.out.println("\nAluno cadastrado com sucesso! \n");
             } else {
-                System.err.println("\n O aluno não foi cadasdrado! \n");
+                System.err.println("\nO aluno não foi cadasdrado! \n");
             }
         }
     }

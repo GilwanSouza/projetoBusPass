@@ -10,9 +10,7 @@ public class AtualizaAluno {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
-        System.out
-                .println(
-                        "\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para numero, 3 para CPF, 4 para senha, 5 para Matricula ou 6 para voltar ao menu \n");
+        System.out.println("\nO que deseja atualizar?\n(1) Para atualizar o nome:\n(2) Para atualizar o número:\n(3) Para atualizar o CPF:\n(4) Para atualizar a senha:\n(5) Para atualizar a matrícula:\n(6) Para voltar ao menu: \n");
         int escolha = input.nextInt();
 
         while (escolha <= 5) {

@@ -10,7 +10,7 @@ public class VisuDadosAluno {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n Digite a matricula do aluno: \n");
+        System.out.println("\nDigite a matrícula do aluno: \n");
         int entrada = input.nextInt();
 
         Aluno visualisar = new Aluno();

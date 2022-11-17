@@ -18,14 +18,14 @@ public class MenuFuncionario {
 
         do {
 
-            System.out.println("\n Olá, bem vindo(a), o que deseja fazer? \n");
-            System.out.println("Para cadastro de vagas digite 1");
-            System.out.println("Para cadastro de veículo digite 2");
-            System.out.println("Para excluir dados de um veículo digite 3");
-            System.out.println("Visualizar dados de um passageiro digite 4");
-            System.out.println("Atualizar dados própios digite 5");
-            System.out.println("Cadastrar se o aluno pagou o mês digite 6");
-            System.out.println("\n Para sair do menu digite 0 \n");
+            System.out.println("\n-----Olá, bem vindo(a), o que deseja fazer?----- \n");
+            System.out.println("(1) Para cadastro de vagas:");
+            System.out.println("(2) Para cadastro de veículo:");
+            System.out.println("(3) Para excluir dados de um veículo:");
+            System.out.println("(4) Visualizar dados de um passageiro:");
+            System.out.println("(5) Para atualizar seus própios dados pessoais:");
+            System.out.println("(6) Para confirmar o pagamento do aluno");
+            System.out.println("\n(0) Caso deseje cancelar a operação: \n");
 
             entrada = inputFuncio.nextInt();
 

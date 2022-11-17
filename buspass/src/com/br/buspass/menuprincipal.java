@@ -18,12 +18,12 @@ public class MenuPrincipal {
         int login = 0;
         int cadastro = 0;
 
-        System.out.println("\n Caso deseje fazer login digite 1, caso fazer seu cadastro digite 2:\n");
+        System.out.println("\n(1) Caso deseje fazer login: \n(2) Caso deseje fazer seu cadastro:\n");
         usuario = inputValor.nextInt();
 
         if (usuario == 1) {
             System.out.println(
-                    "\n Deseja logar como aluno ou funcionario? \n Digite 1 para logar como aluno e 2 para funcionario");
+                    "\nDeseja logar como aluno ou funcionário? \n(1) Para logar como aluno:\n(2) Para logar como funcionário\n");
             login = inputValor.nextInt();
 
             switch (login) {
@@ -31,10 +31,10 @@ public class MenuPrincipal {
 
                     Aluno logadoAluno = null;
                     try {
-                        System.out.println("Login com matricula: ");
+                        System.out.println("\nLogin com matrícula:\n ");
                         int matricula = inputValor.nextInt();
 
-                        System.out.println("Senha: ");
+                        System.out.println("\nSenha:\n ");
                         String senha = inputTexto.nextLine();
 
                         Aluno log_aluno = new Aluno();
@@ -50,16 +50,16 @@ public class MenuPrincipal {
                     if (logadoAluno != null) {
                         MenuAluno.main(args);
                     } else {
-                        System.out.println("\n Login não existe \n");
+                        System.out.println("\nMatrícula ou senha estão inválidos: \n");
                     }
 
                 case 2:
                     Funcionario funcioLogado = null;
                     try {
-                        System.out.println("\n Login com CPF(com pontos e digitos): \n");
+                        System.out.println("\nLogin com CPF: (Com pontos e digitos): \n");
                         String login2 = inputTexto.nextLine();
 
-                        System.out.println("\n Senha: \n");
+                        System.out.println("\nSenha: \n");
                         String senha = inputTexto.nextLine();
 
                         Funcionario log_fun = new Funcionario();
@@ -75,13 +75,13 @@ public class MenuPrincipal {
                     if (funcioLogado != null) {
                         MenuFuncionario.main(args);
                     } else {
-                        System.out.println("\n Login não existe \n");
+                        System.out.println("\nMatrícula ou senha estão inválidos: \n");
                     }
 
             }
         } else if (usuario == 2) {
             System.out
-                    .println("\n Se deseja se cadastrar como aluno digite 1, caso seja como funcionario digite 2: \n");
+                    .println("\n(1) Para se cadastrar como aluno:\n(2) Para se cadastrar como funcionário:\n");
             cadastro = inputValor.nextInt();
 
             switch (cadastro) {
@@ -94,7 +94,7 @@ public class MenuPrincipal {
                         System.out.println("\nInforme seu número de celular: \n");
                         String Numero = inputTexto.nextLine();
 
-                        System.out.println("\nInforme seu CPF: (Com pontos e digito)) \n");
+                        System.out.println("\nInforme seu CPF: (Com pontos e digito) \n");
                         String Cpf = inputTexto.nextLine();
 
                         System.out.println("\nInforme sua senha: \n");
@@ -111,9 +111,9 @@ public class MenuPrincipal {
                         aluno.setMatricula(Matricula);
 
                         if (ConexaoBD.cadastroAluno(aluno)) {
-                            System.out.println("\n Aluno cadastrado com sucesso! \n");
+                            System.out.println("\nAluno cadastrado com sucesso! \n");
                         } else {
-                            System.err.println("\n O aluno não foi cadasdrado! \n");
+                            System.err.println("\nO aluno não foi cadasdrado! \n");
                         }
                     } catch (Exception exception) {
                         System.out.println(exception.getMessage());
@@ -125,7 +125,7 @@ public class MenuPrincipal {
                         System.out.println("\nInforme seu nome completo: \n");
                         String Nome = inputTexto.nextLine();
 
-                        System.out.println("\nInforme seu CPF: \n");
+                        System.out.println("\nInforme seu CPF: (Com pontos e digito) \n");
                         String CPF = inputTexto.nextLine();
 
                         System.out.print("\nInforme sua senha: \n");
@@ -140,9 +140,9 @@ public class MenuPrincipal {
                         funcionario.setId_funcio(id_funcio);
 
                         if (ConexaoBD.cadastroFuncionario(funcionario)) {
-                            System.out.println("\n Funcionario cadastrado com sucesso! \n");
+                            System.out.println("\nFuncionário cadastrado com sucesso! \n");
                         } else {
-                            System.out.println("\n O funcionario não foi cadasdrado! \n");
+                            System.out.println("\nO funcionário não foi cadasdrado! \n");
                         }
 
                     } catch (Exception exception) {

@@ -17,11 +17,11 @@ public class VerDadosVel {
 
         do {
 
-            System.out.println("\n Digite 1 para visualizar os veiculos cadastrados ou 0 para voltar ao menu: \n");
+            System.out.println("\n(1) Para visualizar os veículos cadastrados:\n(0) Para voltar ao menu: \n");
             entrada = input.nextInt();
 
             if (entrada == 1) {
-                System.out.println("\n Digite a placa do veiculo que deseja visualizar os dados: \n");
+                System.out.println("\nDigite a placa do veículo que deseja visualizar os dados: \n");
                 placa = input2.nextLine();
 
                 Veiculo vel = new Veiculo();

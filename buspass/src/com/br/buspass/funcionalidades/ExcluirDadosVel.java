@@ -10,7 +10,7 @@ public class ExcluirDadosVel {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n Digite o ID do veiculo: \n");
+        System.out.println("\nDigite o ID do veículo: \n");
         int entrada = input.nextInt();
 
         Veiculo excluir = new Veiculo();
@@ -18,9 +18,9 @@ public class ExcluirDadosVel {
         excluir.setId_vel(entrada);
 
         if (ConexaoBD.ExcluirVeiculo(excluir)) {
-            System.out.println("\n Dados do veiculo excluido com sucesso! \n");
+            System.out.println("\nDados do veículo excluidos com sucesso! \n");
         } else {
-            System.err.println("\n O veículo não foi excluido do sistema! \n");
+            System.err.println("\nO veículo não foi excluido do sistema! \n");
         }
 
         input.close();

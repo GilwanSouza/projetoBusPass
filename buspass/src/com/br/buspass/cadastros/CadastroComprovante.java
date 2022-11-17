@@ -16,21 +16,21 @@ public class CadastroComprovante {
         try (Scanner input = new Scanner(System.in);
                 Scanner inputTXT = new Scanner(System.in);) {
 
-            System.out.println("\n Digite o mês do pagamento? \n");
+            System.out.println("\nDigite o mês do pagamento? \n");
             mes = input.nextLine();
 
-            System.out.println("\n Digite a matricula do aluno que fez o pagamento: \n");
+            System.out.println("\nDigite à matrícula do aluno que fez o pagamento: \n");
             mat_pagador = inputTXT.nextInt();
 
-            System.out.println("\n Digite o dia que o pagamento foi feito: \n");
+            System.out.println("\nDigite o dia que o pagamento foi feito: \n");
             dt_pago = input.nextLine();
 
             Pagamento pagou = new Pagamento(mes, mat_pagador, dt_pago);
 
             if (ConexaoBD.PagamentoAluno(pagou)) {
-                System.out.println("\n Pagamento do aluno cadastrado com sucesso! \n");
+                System.out.println("\nPagamento do aluno cadastrado com sucesso! \n");
             } else {
-                System.err.println("\n O pagamento do aluno não foi cadasdrado! \n");
+                System.err.println("\nO pagamento do aluno não foi cadasdrado! \n");
             }
         }
     }

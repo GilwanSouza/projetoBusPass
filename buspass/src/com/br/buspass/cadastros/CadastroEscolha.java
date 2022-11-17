@@ -9,22 +9,22 @@ import com.br.buspass.conexao.ConexaoBD;
 public class CadastroEscolha {
     public static void main(String[] args) throws Exception {
         try (Scanner input = new Scanner(System.in)) {
-            System.out.println("\nHorarios Disponiveis\n");
+            System.out.println("\nHorários Disponíveis\n");
             
             ConexaoBD.CompraPassagem();
 
-            System.out.println("\nDigite sua matricula: \n");
+            System.out.println("\nDigite sua matrícula: \n");
             int mat = input.nextInt();
 
-            System.out.println("\nDigite o ID do horario desejado: \n");
+            System.out.println("\nDigite o ID do horário desejado: \n");
             int num_horario = input.nextInt();
 
             Escolha hr_viagem = new Escolha(mat, num_horario);
 
             if (ConexaoBD.EscolhaHorario(hr_viagem)) {
-                System.out.println("\n Horario escolhido com sucesso! \n");
+                System.out.println("\nHorário escolhido com sucesso! \n");
             } else {
-                System.err.println("\n O(s) horário(s) não foram cadasdrado(s)! \n");
+                System.err.println("\nO horário não foi cadasdrado! \n");
             }
         }
     }

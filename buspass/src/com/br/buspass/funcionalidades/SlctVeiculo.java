@@ -9,13 +9,13 @@ public class SlctVeiculo {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Informe o motivo da troca do veiculo:");
+        System.out.println("\nInforme o motivo da troca do veículo:");
         String troca = input.nextLine();
 
-        System.out.println("\n Informe o ID do veículo que deseja escolher:\n");
+        System.out.println("\nInforme o ID do veículo que deseja escolher:\n");
         int vel_antigo = input.nextInt();
 
-        System.out.println("\n Informe o veículo que estava sendo usado:\n");
+        System.out.println("\nInforme o veículo que estava sendo usado:\n");
         int vel_novo = input.nextInt();
 
         Veiculo ver_vel = new Veiculo();

@@ -10,16 +10,16 @@ public class CadastroVeiculo {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
 
-            System.out.println("\n Qual a placa do veículo? \n");
+            System.out.println("\nQual a placa do veículo? \n");
             String placa = input.nextLine();
 
-            System.out.println("\n Qual a numeração de chassi do veículo? \n");
+            System.out.println("\nQual a numeração do chassi do veículo? \n");
             String chassi = input.nextLine();
 
-            System.out.println("\n Qual o modelo e a cor do veículo? \n");
+            System.out.println("\nQual o modelo e a cor do veículo? \n");
             String modelo = input.nextLine();
 
-            System.out.println("\n Qual o ano do veículo? \n");
+            System.out.println("\nQual o ano do veículo? \n");
             int ano = input.nextInt();
 
             Random random = new Random();
@@ -28,9 +28,9 @@ public class CadastroVeiculo {
             Veiculo veiculo = new Veiculo(placa, chassi, modelo, ano, numero);
 
             if (ConexaoBD.cadastroVeiculo(veiculo)) {
-                System.out.println("\n Veiculo cadastrado com sucesso! \n");
+                System.out.println("\nVeículo cadastrado com sucesso! \n");
             } else {
-                System.err.println("\n O veículo não foi cadasdrado! \n");
+                System.err.println("\nO veículo não foi cadasdrado! \n");
             }
         }
     }

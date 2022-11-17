@@ -8,7 +8,7 @@ public class TrocarVeiculo {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("Informe (1) para escolher um veículo já cadastrado ou (2) para cadastrar um novo veículo:");
+        System.out.println("\n(1) Para escolher um veículo já cadastrado:\n(2) Para cadastrar um novo veículo:\n");
         int carro = entrada.nextInt();
 
         switch (carro) {

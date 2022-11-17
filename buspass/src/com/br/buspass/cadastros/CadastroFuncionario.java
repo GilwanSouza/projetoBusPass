@@ -26,7 +26,7 @@ public class CadastroFuncionario {
             System.out.print("\nInforme sua senha: \n");
             String Senha = entrada.nextLine();
 
-            System.out.println("\nInforme o ID do veiculo que dirige: \n");
+            System.out.println("\nInforme o ID do veículo que dirige: \n");
             int id_veiculo = entrada.nextInt();
 
             int id_funcio = random.nextInt(10000);
@@ -34,9 +34,9 @@ public class CadastroFuncionario {
             Funcionario funcionario = new Funcionario(Nome, CPF, Senha, id_funcio, id_veiculo);
 
             if (ConexaoBD.cadastroFuncionario(funcionario)) {
-                System.out.println("\n Funcionario cadastrado com sucesso! \n");
+                System.out.println("\nFuncionário cadastrado com sucesso! \n");
             } else {
-                System.out.println("\n O funcionario não foi cadasdrado! \n");
+                System.out.println("\nO funcionário não foi cadasdrado! \n");
             }
         }
     }

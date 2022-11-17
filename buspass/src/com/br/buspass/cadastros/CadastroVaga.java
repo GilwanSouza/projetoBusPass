@@ -13,18 +13,18 @@ public class CadastroVaga {
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("\nInforme a quantidade de vagas desponiveis no veículo: \n");
+        System.out.println("\nInforme a quantidade de vagas disponíveis no veículo: \n");
         int quantidade = entrada.nextInt();
 
-        System.out.println("\n Informe qual o ID do seu veiculo: \n");
+        System.out.println("\nInforme qual o ID do seu veículo: \n");
         int id_Search = entrada.nextInt();
 
         VagaVeiculo vagas = new VagaVeiculo(quantidade, id_Search); 
         
         if (ConexaoBD.cadastroVaga(vagas)) {
-            System.out.println("\n Vagas cadastrado com sucesso! \n");
+            System.out.println("\nVagas cadastradas com sucesso! \n");
         } else {
-            System.err.println("\n As Vagas não foram cadasdradas! \n");
+            System.err.println("\nAs Vagas não foram cadasdradas! \n");
         }
     }
 }

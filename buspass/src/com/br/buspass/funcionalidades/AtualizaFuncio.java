@@ -10,7 +10,7 @@ public class AtualizaFuncio {
         Scanner input = new Scanner(System.in);
 
         System.out
-                .println("\n O que deseja atualizar? \n Digite 1 para atualizar o nome, 2 para CPF ou 3 para senha \n");
+                .println("\nO que deseja atualizar?\n(1) Para atualizar o nome:\n(2) Para atualizar o CPF:\n(3) Para atualizar a senha \n");
         int escolha = input.nextInt();
 
         while (escolha <= 5) {
@@ -32,7 +32,7 @@ public class AtualizaFuncio {
                 ConexaoBD.AtualizarIDVelFuncio(null);
 
             } else {
-                System.out.println("\n Infome algum valor valido: \n");
+                System.out.println("\nInfome algum valor valido: \n");
             }
 
         }

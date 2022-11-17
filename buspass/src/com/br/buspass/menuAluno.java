@@ -15,9 +15,9 @@ public class MenuAluno {
 
             Scanner input = new Scanner(System.in);
 
-            System.out.println("\n Olá, seja bem vindo(a) o que deseja fazer? \n");
-            System.out.println("\n Digite 1 para cadastra-se em algum horario e 2 pra atualizar seus dados \n");
-            System.out.println("\n Caso deseje sair digite 0 \n");
+            System.out.println("\n-----Olá, seja bem vindo(a) o que deseja fazer?----- \n");
+            System.out.println("\n(1) Para cadastra-se em algum horário:\n(2) Para atualizar seus dados: \n");
+            System.out.println("\n(0) Caso deseje cancelar a operação: \n");
             entrada = input.nextInt();
 
             switch (entrada) {

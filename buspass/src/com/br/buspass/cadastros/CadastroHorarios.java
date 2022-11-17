@@ -19,13 +19,13 @@ public class CadastroHorarios {
         try (Scanner input = new Scanner(System.in)) {
             Random random = new Random();
 
-            System.out.println("\n Qual o horário de IDA que deseja disponibilizar? \n");
+            System.out.println("\nQual o horário de IDA que deseja disponibilizar? \n");
             String hrIda = input.nextLine();
 
-            System.out.println("\n Qual o horário de VOLTA que deseja disponibilizar? \n");
+            System.out.println("\nQual o horário de VOLTA que deseja disponibilizar? \n");
             String hrVolta = input.nextLine();
 
-            System.out.println("\n Qual data do horario disponibilizado? \n");
+            System.out.println("\nQual a data do horário disponibilizado? \n");
             String dtViagem = input.nextLine();
 
             int numero = random.nextInt(10000);
@@ -35,12 +35,10 @@ public class CadastroHorarios {
                 numero);
  
             if (ConexaoBD.cadastroHorario(horario)) {
-                System.out.println("\n Horarios cadastrado com sucesso! \n");
+                System.out.println("\nHorário cadastrado com sucesso! \n");
             } else {
-                System.err.println("\n Os horarios não foram cadasdrados! \n");
+                System.err.println("\nO horário não foi cadasdrados! \n");
             }
         }
-
     }
-
 }
