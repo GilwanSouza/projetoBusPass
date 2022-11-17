@@ -22,8 +22,7 @@ public class MenuPrincipal {
         usuario = inputValor.nextInt();
 
         if (usuario == 1) {
-            System.out.println(
-                    "\nDeseja logar como aluno ou funcionário? \n(1) Para logar como aluno:\n(2) Para logar como funcionário\n");
+            System.out.println("\nDeseja logar como aluno ou funcionário? \n(1) Para logar como aluno:\n(2) Para logar como funcionário:\n");
             login = inputValor.nextInt();
 
             switch (login) {
