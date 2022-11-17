@@ -9,16 +9,17 @@ import com.br.buspass.conexao.ConexaoBD;
 
 public class CadastroVeiculo {
     public static void main(String[] args) throws Exception {
-        try (Scanner input = new Scanner(System.in)) {
+        try (Scanner input = new Scanner(System.in);
+                Scanner inputTXT = new Scanner(System.in);) {
 
             System.out.println("\nQual a placa do veículo? \n");
-            String placa = input.nextLine();
+            String placa = inputTXT.nextLine();
 
             System.out.println("\nQual a numeração do chassi do veículo? \n");
-            String chassi = input.nextLine();
+            String chassi = inputTXT.nextLine();
 
             System.out.println("\nQual o modelo e a cor do veículo? \n");
-            String modelo = input.nextLine();
+            String modelo = inputTXT.nextLine();
 
             System.out.println("\nQual o ano do veículo? \n");
             int ano = input.nextInt();
@@ -36,6 +37,9 @@ public class CadastroVeiculo {
 
             MenuFuncionario.main(args);
 
+            input.close();
+            inputTXT.close();
         }
     }
+
 }

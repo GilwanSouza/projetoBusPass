@@ -33,9 +33,12 @@ public class CadastroComprovante {
             } else {
                 System.err.println("\nO pagamento do aluno não foi cadasdrado! \n");
             }
+
+            MenuFuncionario.main(args);
+
+            input.close();
+            inputTXT.close();
         }
-
-        MenuFuncionario.main(args);
-
+        
     }
 }

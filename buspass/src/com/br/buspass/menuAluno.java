@@ -33,7 +33,6 @@ public class MenuAluno {
     
             }
             inputAluno.close();
-            MenuAluno.main(args);
 
         } while (entrada != 0);
     }

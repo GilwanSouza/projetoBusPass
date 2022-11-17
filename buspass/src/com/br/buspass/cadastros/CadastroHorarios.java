@@ -40,9 +40,9 @@ public class CadastroHorarios {
             } else {
                 System.err.println("\nO horário não foi cadasdrados! \n");
             }
+            MenuFuncionario.main(args);
+
+            input.close();
         }
-
-        MenuFuncionario.main(args);
-
     }
 }

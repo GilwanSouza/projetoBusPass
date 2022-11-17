@@ -11,16 +11,22 @@ public class VisuDadosAluno {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\nDigite a matrícula do aluno: \n");
-        int entrada = input.nextInt();
+        try {
+            
+            System.out.println("\nDigite a matrícula do aluno: \n");
+            int entrada = input.nextInt();
+    
+            Aluno visualisar = new Aluno();
+    
+            visualisar.setMatricula(entrada);
+    
+            ConexaoBD.VisualizarDados(visualisar);
+    
+            MenuFuncionario.main(args);
 
-        Aluno visualisar = new Aluno();
-
-        visualisar.setMatricula(entrada);
-
-        ConexaoBD.VisualizarDados(visualisar);
-
-        MenuFuncionario.main(args);
+        } catch (Exception exception) {
+            System.err.println(exception.getMessage());
+        }
 
         input.close();
     }
