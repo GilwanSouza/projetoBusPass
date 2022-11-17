@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.br.buspass.cadastros.CadastroComprovante;
 import com.br.buspass.cadastros.CadastroVaga;
 import com.br.buspass.cadastros.CadastroVeiculo;
-import com.br.buspass.funcionalidades.AtualizaFuncio;
 import com.br.buspass.funcionalidades.ExcluirDadosVel;
 import com.br.buspass.funcionalidades.VerDadosVel;
 import com.br.buspass.funcionalidades.VisuDadosAluno;
@@ -24,9 +23,8 @@ public class MenuFuncionario {
             System.out.println("(2) Para cadastro de veículo:");
             System.out.println("(3) Para excluir dados de um veículo:");
             System.out.println("(4) Visualizar dados de um passageiro:");
-            System.out.println("(5) Para atualizar seus própios dados pessoais:");
-            System.out.println("(6) Para confirmar o pagamento do aluno:");
-            System.out.println("(7) Para visualizar os veiculos cadasdrados:");
+            System.out.println("(5) Para confirmar o pagamento do aluno:");
+            System.out.println("(6) Para visualizar os veiculos cadasdrados:");
             System.out.println("\n(0) Caso deseje cancelar a operação: \n");
 
             entrada = inputFuncio.nextInt();
@@ -49,14 +47,10 @@ public class MenuFuncionario {
                     break;
 
                 case 5:
-                    AtualizaFuncio.main(args);
-                    break;
-
-                case 6:
                     CadastroComprovante.main(args);
                     break;
 
-                case 7:
+                case 6:
                     VerDadosVel.main(args);
             }
 

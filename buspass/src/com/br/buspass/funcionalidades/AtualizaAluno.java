@@ -17,6 +17,7 @@ public class AtualizaAluno {
         int escolha = input.nextInt();
 
             if (escolha == 1) {
+
                 System.out.println("\n Qual o novo nome? \n");
                 String nome_aluno = inputTXT.nextLine();
 
@@ -24,8 +25,10 @@ public class AtualizaAluno {
                 int matricula = input.nextInt();
 
                 Aluno alunoNome = new Aluno();
+
                 alunoNome.setNome(nome_aluno);
                 alunoNome.setMatricula(matricula);
+
                 ConexaoBD.AtualizarNomeAluno(alunoNome);
 
                 if (ConexaoBD.AtualizarNomeAluno(alunoNome)) {
@@ -33,7 +36,9 @@ public class AtualizaAluno {
                 } else {
                     System.err.println("\nA atualização não foi concluida! \n");
                 }
+
             } else if (escolha == 2) {
+
                 System.out.println("\nDigite o novo numero: \n");
                 String num_aluno = inputTXT.nextLine();
 
@@ -41,8 +46,10 @@ public class AtualizaAluno {
                 int matricula = input.nextInt();
 
                 Aluno alunoNumero = new Aluno();
+
                 alunoNumero.setNumero(num_aluno);
                 alunoNumero.setMatricula(matricula);
+
                 ConexaoBD.AtualizarNomeAluno(alunoNumero);
 
                 if (ConexaoBD.AtualizarCPFAluno(alunoNumero)) {
@@ -52,7 +59,7 @@ public class AtualizaAluno {
                 }
                 
             } else if (escolha == 3) {
-                ConexaoBD.AtualizarCPFAluno(null);
+
                 System.out.println("\nDigite o novo CPF: \n");
                 String cpf_aluno = inputTXT.nextLine();
 
@@ -60,8 +67,10 @@ public class AtualizaAluno {
                 int matricula = input.nextInt();
 
                 Aluno alunoCpf = new Aluno();
+
                 alunoCpf.setCpf(cpf_aluno);
                 alunoCpf.setMatricula(matricula);
+                
                 ConexaoBD.AtualizarNomeAluno(alunoCpf);
 
                 if (ConexaoBD.AtualizarCPFAluno(alunoCpf)) {
@@ -69,7 +78,9 @@ public class AtualizaAluno {
                 } else {
                     System.err.println("\nA atualização não foi concluida! \n");
                 }
+
             } else if (escolha == 4) {
+
                 System.out.println("\nDigite a nova senha: \n");
                 String senha_aluno = inputTXT.nextLine();
 
@@ -86,7 +97,9 @@ public class AtualizaAluno {
                 } else {
                     System.err.println("\nA atualização não foi concluida! \n");
                 }
+
             } else if (escolha == 5) {
+
                 System.out.println("\nDigite a nova matricula: \n");
                 int matricula_aluno = inputTXT.nextInt();
 
@@ -103,12 +116,19 @@ public class AtualizaAluno {
                 } else {
                     System.err.println("\nA atualização não foi concluida! \n");
                 }
+
             } else if (escolha == 6) {
+
                 MenuAluno.main(args);
+
             } else if (escolha == 7) {
+
                 System.out.println("\n Infome algum valor valido \n");
+
             } else {
+
                 System.out.println("\n Digite um valor valido: \n");
+
             }
         input.close();
         inputTXT.close();

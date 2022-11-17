@@ -234,66 +234,6 @@ public class ConexaoBD {
 
     }
 
-    public static void AtualizarNomeFuncio(Funcionario funcio_nome) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE funcionario SET nome (?) WHERE nome = (?);");) {
-            preparedStatement.setString(1, funcio_nome.getNome());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-    }
-
-    public static void AtualizarCPFFuncio(Funcionario funcio_cfp) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE funcionario SET cpf (?) WHERE cpf = (?);");) {
-            preparedStatement.setString(2, funcio_cfp.getCPF());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-    }
-
-    public static void AtualizarIDVelFuncio(Funcionario funcio_id_vel) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE funcionario SET id_vel (?) WHERE id_vel = (?);");) {
-            preparedStatement.setInt(5, funcio_id_vel.getId_veiculo());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-    }
-
-    public static void AtualizarSenhaFuncio(Funcionario funcio_senha) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE funcionario SET senha (?) WHERE senha = (?);");) {
-            preparedStatement.setString(3, funcio_senha.getSenha());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-    }
-
     public static boolean EscolhaHorario(Escolha escolha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
