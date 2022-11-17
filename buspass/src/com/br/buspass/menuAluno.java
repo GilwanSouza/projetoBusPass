@@ -29,7 +29,7 @@ public class MenuAluno {
                     break;
     
                 case 0:
-                    MenuAluno.main(args);
+                    MenuPrincipal.main(args);
     
             }
             inputAluno.close();

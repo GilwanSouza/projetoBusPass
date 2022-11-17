@@ -162,46 +162,13 @@ public class ConexaoBD {
 
     }
 
-    public static void AtualizarNumeroAluno(Aluno aluno_numero) {
+    public static boolean AtualizarNumeroAluno(Aluno aluno_numero) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE aluno SET num_tel (?) WHERE num_tel = (?);");) {
-            preparedStatement.setString(2, aluno_numero.getNome());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-    }
-
-    public static boolean AtualizarCPFAluno(Aluno aluno_cpf) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE aluno SET cpf (?) WHERE cpf = (?);");) {
-            preparedStatement.setString(3, aluno_cpf.getNome());
-
-            preparedStatement.executeUpdate();
-
-            
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-
-        return false;
-
-    }
-
-    public static boolean AtualizarSenhaAluno(Aluno aluno_senha) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-
-                PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE aluno SET senha (?) WHERE senha = (?);");) {
-            preparedStatement.setString(4, aluno_senha.getNome());
+                        .prepareStatement("UPDATE aluno SET num_tel = (?) WHERE matricula = (?);");) {
+            preparedStatement.setString(1, aluno_numero.getNumero());
+            preparedStatement.setInt(2, aluno_numero.getMatricula());
 
             preparedStatement.executeUpdate();
 
@@ -215,12 +182,13 @@ public class ConexaoBD {
 
     }
 
-    public static boolean AtualizarMatriculaAluno(Aluno aluno_mat) {
+    public static boolean AtualizarSenhaAluno(Aluno aluno_senha) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
 
                 PreparedStatement preparedStatement = connection
-                        .prepareStatement("UPDATE aluno SET matricula (?) WHERE matricula = (?);");) {
-            preparedStatement.setString(5, aluno_mat.getNome());
+                        .prepareStatement("UPDATE aluno SET senha = (?) WHERE matricula = (?);");) {
+            preparedStatement.setString(1, aluno_senha.getSenha());
+            preparedStatement.setInt(2, aluno_senha.getMatricula());
 
             preparedStatement.executeUpdate();
 
