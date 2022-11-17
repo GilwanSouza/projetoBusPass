@@ -3,6 +3,7 @@ package com.br.buspass;
 import java.util.Scanner;
 
 import com.br.buspass.cadastros.CadastroComprovante;
+import com.br.buspass.cadastros.CadastroHorarios;
 import com.br.buspass.cadastros.CadastroVaga;
 import com.br.buspass.cadastros.CadastroVeiculo;
 import com.br.buspass.funcionalidades.ExcluirDadosVel;
@@ -25,6 +26,7 @@ public class MenuFuncionario {
             System.out.println("(4) Visualizar dados de um passageiro:");
             System.out.println("(5) Para confirmar o pagamento do aluno:");
             System.out.println("(6) Para visualizar os veiculos cadasdrados:");
+            System.out.println("(7) Para cadastrar horarios:");
             System.out.println("\n(0) Caso deseje cancelar a operação: \n");
 
             entrada = inputFuncio.nextInt();
@@ -52,6 +54,10 @@ public class MenuFuncionario {
 
                 case 6:
                     VerDadosVel.main(args);
+                    break;
+
+                case 7:
+                    CadastroHorarios.main(args);
             }
 
         } while (entrada != 0);
