@@ -33,5 +33,9 @@ public class VerDadosVel {
             }
 
         } while (entrada != 0);
+
+        input.close();
+        input2.close();
+        
     }
 }

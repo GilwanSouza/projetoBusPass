@@ -26,5 +26,6 @@ public class CadastroVaga {
         } else {
             System.err.println("\nAs Vagas não foram cadasdradas! \n");
         }
+        entrada.close();
     }
 }
