@@ -3,7 +3,6 @@ package com.br.buspass.cadastros;
 import java.util.Scanner;
 
 import com.br.buspass.MenuAluno;
-import com.br.buspass.MenuFuncionario;
 import com.br.buspass.compra.Escolha;
 import com.br.buspass.conexao.ConexaoBD;
 
